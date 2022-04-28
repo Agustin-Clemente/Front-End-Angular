@@ -1,0 +1,36 @@
+<div class = "card mat-card">
+    <div id="education">
+        <div class="card-titles">
+        <h2>Educación</h2>
+        <div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>
+    </div>
+
+    <div>
+        <ul class="items-list">
+            <li *ngFor="let educacion of educacionList">
+                <div class="data-containter">
+                <a href="#">
+                <div class="logo-image-container">
+                    <img class = "logo-image"
+                    [src]="educacion.img"/>
+                </div>
+                <div class="list-info">
+                   <div>
+                    <h3>{{educacion.school}}</h3>
+                    <p>{{educacion.career}}</p>
+                    <p><time>{{educacion.start}}</time> - <time>{{educacion.end}}</time>
+                </div>
+                </div>
+                </a>
+                </div>
+                <div class="data-control">
+                    <div class="btn-edit">
+                        <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    </div>
