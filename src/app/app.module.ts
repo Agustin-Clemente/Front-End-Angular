@@ -12,6 +12,8 @@ import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { PortfolioService } from './services/portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { SkillsComponent } from './components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
     EducacionComponent,
     NavbarComponent,
     AptitudesComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [PortfolioService],
   bootstrap: [AppComponent]

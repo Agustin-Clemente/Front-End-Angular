@@ -6,22 +6,22 @@
     </div>
 
     <div>
-        <ul class="items-list">
+        <ul class="items-list ">
             <li *ngFor="let educacion of educacionList">
-                <div class="data-containter">
+                <div class="data-containter  col-md-12">
                 <a href="#">
                 <div class="logo-image-container">
-                    <img class = "logo-image"
-                    [src]="educacion.img"/>
+                    <img class = "logo-image" [src]="educacion.img"/>
                 </div>
+            </a>
                 <div class="list-info">
                    <div>
                     <h3>{{educacion.school}}</h3>
                     <p>{{educacion.career}}</p>
-                    <p><time>{{educacion.start}}</time> - <time>{{educacion.end}}</time>
+                    <p><time>{{educacion.start}}</time> - <time>{{educacion.end}}</time></p>
                 </div>
                 </div>
-                </a>
+                
                 </div>
                 <div class="data-control">
                     <div class="btn-edit">

@@ -137,3 +137,11 @@ div#info-data ul#info-details li a h2{
         background: gray;
     }
 
+    .logo-image{
+        width: 80px;
+        height: 80px;
+        margin-right: 9px;
+        float: left;
+        
+    }
+
