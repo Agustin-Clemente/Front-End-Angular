@@ -1,0 +1,19 @@
+.fa-icon{
+    color: red;
+}
+
+fa-icon{
+    color: red;
+        display: block;
+        height: 2.4rem;
+        width: 2.4rem;
+        line-height: 2.4rem;
+        text-align: center;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+}
+
+fa-icon:hover{
+    background:gray;
+}

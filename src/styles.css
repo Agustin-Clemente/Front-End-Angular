@@ -145,3 +145,10 @@ div#info-data ul#info-details li a h2{
         
     }
 
+    .img-proyecto, .texto-proyecto{
+        display: inline-block;
+        text-align: justify;
+    }
+
+   
+

@@ -3,16 +3,16 @@
     <div id="info" style="padding: 16px">
         
     <div id="info-img">
-    <img class="profile-image" [src]="miPortfolio.image">
-    <div class="btn-edit"><a href="a" class="btn-right"><i class="fa fa-pen"></i></a></div>
+    <img class="profile-image" [src]="persona.img">
+    <div class="btn-edit" class="btn-right"><i class="fa fa-pen"></i></div>
     </div>
     <div id="info-data">
         <div>
-            <h1>{{miPortfolio.name}}</h1>
-            <div id="info-company">Veterinario UBA</div>
+            <h1>{{persona.nombre}} {{persona.apellido}}</h1>
+            <div id="info-company">{{persona.profesion}}</div>
             <div id="info-contact">
-                <span>Buenos Aires (Argentina)</span>
-                <span><a href="mailto:agustin.clemente@bue.edu.ar">Contacto</a></span>
+                <span>{{persona.ubicacion}}</span>
+                <span><a href="mailto:agustin.clemente@bue.edu.ar"> Contacto</a></span>
             </div>
         </div>
         <ul id="info-details">

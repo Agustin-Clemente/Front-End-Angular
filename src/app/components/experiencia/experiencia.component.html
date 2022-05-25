@@ -2,35 +2,70 @@
     <div id="experience">
     <div class="card-titles">
     <h2>Experiencia</h2>
-    <div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>
     </div>
     
     <div>
+        <ul class="items-list ">
+                <li *ngFor="let experiencia of listaExperiencia">
+                <div class="data-containter  col-md-12">
+                <a href="#">
+                <div class="logo-image-container">
+                    <img class = "logo-image" [src]="experiencia.img"/>
+                </div>
+            </a>
+                <div class="list-info">
+                   <div>
+                    <h3>{{experiencia.sector}}</h3>
+                    <p>{{experiencia.cargo}} ({{experiencia.jornada}})--
+                    <time>{{experiencia.desde}}</time> - <time>{{experiencia.hasta}}</time></p>
+                    <div class="btn-edit btn-right"> <i class="fa fa-pen"></i>
+                    <fa-icon [icon]="fatimes" (click)="onDelete()" class="btn-edit"></fa-icon></div>
+                </div>
+                </div>
+                
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    
+    <!--
+    <div>
         <ul class="items-list">
             <li>
-                <div class="data-containter">
+                <div class="data-containter col-md-12">
                 <a href="#">
                 <div class="logo-image-container">
                     <img class = "logo-image"
                     src="https://ens2-caba.infd.edu.ar/aula/archivos/logos/escudo.gif"/>
                 </div>
+            </a>
                 <div class="list-info">
                    <div>
                     <h3>Burócrata</h3>
-                    <p>Secretaría - <span>Jornada parcial</span></p>
-                    <h4>Mar 2017 - actualidad</h4>
-                    <h4>Buenos Aires, Argentina</h4>
+                    <p>Secretaría - <span>Jornada parcial</span> <br> <span>
+                    Mar 2017 - actualidad</span> <br> <span>
+                    Buenos Aires, Argentina</span> </p>
+                    <div class="btn-edit btn-right"> <i class="fa fa-pen"></i>
+                    <fa-icon [icon]="fatimes" (click)="onDelete()" class="btn-edit"></fa-icon>
+                
+                </div>
+                   </div>
                 </div>
                 </div>
-                </a>
-                </div>
+            -->
+                <!-- 
                 <div class="data-control">
                     <div class="btn-edit">
                         <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
                     </div>
+                   
                 </div>
+            -->
+            <!--
             </li>
         </ul>
     </div>
+-->
     </div>
     </div>

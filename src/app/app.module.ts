@@ -14,6 +14,8 @@ import { PortfolioService } from './services/portfolio.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillsComponent } from './components/skills/skills.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { SkillsComponent } from './components/skills/skills.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    FontAwesomeModule,
   ],
   providers: [PortfolioService],
   bootstrap: [AppComponent]

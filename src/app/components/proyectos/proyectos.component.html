@@ -2,11 +2,48 @@
     <div id="projects">
     <div class="card-titles">
     <h2>Proyectos</h2>
-    <div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>
+    <!--<div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>-->
+    </div>
+
+    <div>
+        <ul class="items-list ">
+                <li *ngFor="let proyecto of listaProyectos">
+                <div class="data-containter  col-md-12">
+                <a href="#">
+                <div class="logo-image-container">
+                    <img class = "logo-image" [src]="proyecto.img"/>
+                </div>
+            </a>
+                <div class="list-info">
+                   <div>
+                    <h3>{{proyecto.titulo}}</h3>
+                    <p>{{proyecto.anio}}</p>
+                    <p>{{proyecto.descripcion}}</p>
+                    <div class="btn-edit btn-right"> <i class="fa fa-pen"></i>
+                    <!--<fa-icon [icon]="fatimes" (click)="onDelete()" class="btn-edit"></fa-icon>-->
+                    </div>
+                </div>
+                </div>
+                
+                </div>
+            </li>
+        </ul>
     </div>
     
-    <div>
-    Libro Influvetes - TP Cessi - Proyectos de investigación.
+    <!--
+    <div class="col-sm-12 col-md-7 col-lg-7 texto-proyecto">
+    <h3>Influvetes</h3> 
+    <p>También TP Cessi - Proyectos de investigación.</p>
     </div>
+
+<div class="logo-image-container col-sm-12 col-md-3 col-lg-3 img-proyecto">
+    <a href="https://influvetes.com.ar/">
+    <img class="img-fluid" src="https://influvetes.com.ar/wp-content/uploads/2021/12/Libro_sin-fondo.png" alt="">
+</a>
+</div>
+-->
+
     </div>
-    </div>
+
+
+</div>
