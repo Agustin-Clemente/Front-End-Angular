@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { AgregarExperienciaComponent } from './components/agregar-experiencia/agregar-experiencia.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavbarComponent,
     AptitudesComponent,
     ProyectosComponent,
-    SkillsComponent
+    SkillsComponent,
+    AgregarExperienciaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     NgCircleProgressModule.forRoot({}),
     FontAwesomeModule,
+    FormsModule
   ],
   providers: [PortfolioService],
   bootstrap: [AppComponent]
