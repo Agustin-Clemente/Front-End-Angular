@@ -4,11 +4,34 @@
 }
 
 .github{
-    width: 60px;
+    width: 50px;
+
 }
 
 .argprog{
-    width: 50px;
+    width: 100px;
     margin-right: 10px;
     background-color: black;
 }
+
+.text{
+    color: aqua;
+}
+
+.navbar-brand{
+    color: aqua;
+    font-weight:700;
+}
+
+.navbar-brand:hover{
+    color: snow;
+}
+
+
+#link {
+    color: aqua;
+    cursor: pointer;
+}
+
+
+

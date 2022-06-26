@@ -11,13 +11,18 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AptitudesComponent } from './components/aptitudes/aptitudes.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { PortfolioService } from './services/portfolio.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillsComponent } from './components/skills/skills.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgregarExperienciaComponent } from './components/agregar-experiencia/agregar-experiencia.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { InterceptorService } from './services/interceptor.service';
+//import { ExtraOptions, RouterModule, Routes, RoutesRecognized } from '@angular/router';
+//import { InterceptorService } from './services/interceptor.service';
+
 
 
 @NgModule({
@@ -32,7 +37,8 @@ import { HomeComponent } from './components/home/home.component';
     ProyectosComponent,
     SkillsComponent,
     AgregarExperienciaComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +46,13 @@ import { HomeComponent } from './components/home/home.component';
     HttpClientModule,
     NgCircleProgressModule.forRoot({}),
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [PortfolioService],
+  
+  providers: [PortfolioService, //InterceptorService
+  {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

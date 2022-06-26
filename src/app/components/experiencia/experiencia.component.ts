@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
+import { TokenService } from 'src/app/services/token.service';
 import Swal from 'sweetalert2';
 
 
@@ -19,13 +20,17 @@ export class ExperienciaComponent implements OnInit {
 
   exp : experiencia = new experiencia();
 
-  
+  roles : string[];
+
+  isAdmin= false;
 
   fatimes = faTimes;
 
-  constructor(private experienciaService:ExperienciaService, private route: ActivatedRoute,private router:Router) { }
+  constructor(private experienciaService:ExperienciaService, private route: ActivatedRoute,private router:Router, private tokenServ:TokenService) { }
 
   ngOnInit(): void {
+    
+  
     /*
     this.route.params.subscribe(params => {
     this.experienciaService.obtenerExperiencia().subscribe(data=>{
@@ -45,6 +50,13 @@ export class ExperienciaComponent implements OnInit {
   this.experienciaService.obtenerExperiencia().subscribe(dato =>{
     this.listaExperiencia = dato;
   })
+
+  this.roles = this.tokenServ.getAuthorities();
+  this.roles.forEach(rol=>{
+    if(rol === 'ROLE_ADMIN'){
+      this.isAdmin= true;
+    }
+  });
   }
 
   public onEdit(id:number){

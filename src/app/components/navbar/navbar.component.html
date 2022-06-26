@@ -1,5 +1,5 @@
 <!--NAV BAR-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-black sticky-top">
     <div class="container-fluid">
       <a href="https://argentinaprograma.inti.gob.ar/">
       <img src="https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1652360229/APLogo-20-20.png" class="argprog">
@@ -11,37 +11,57 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#text-acercade">Acerca de</a>
+            <a class="nav-link" id="link" aria-current="page" (click)="onClick('acercade')">Acerca de</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#experience">Experiencia</a>
+            <a class="nav-link" id="link" (click)="onClick('experience')">Experiencia</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#education">Educación</a>
+            <a class="nav-link" id="link" (click)="onClick('education')">Educación</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#projects">Proyectos</a>
+            <a class="nav-link" id="link" (click)="onClick('projects')">Proyectos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" id="link" (click)="onClick('skills')">Skills</a>
           </li>
         </ul>
+        <div class="text" *ngIf="isLogged">
+          Bienvenido {{username}}
+        </div>
+
         <a href="https://github.com/Agustin-Clemente" target="_blank">
-        <img src="https://img2.freepng.es/20180628/wpy/kisspng-github-social-media-computer-icons-logo-android-5b34849064c384.6953108415301684644127.jpg" class="github">
+        <img src="https://www.sferalabs.cc/wp-content/uploads/github-logo-white-500x332.png" class="github">
       </a>
         <a href="https://www.linkedin.com/in/agustin-clemente-6a8585125/" target="_blank">
         <img src="https://blog.waalaxy.com/wp-content/uploads/2021/01/LinkedIn-Symbole-768x432.png" class="linkedin">
       </a>
+
+    
+      <a class="nav-link" *ngIf="!isLogged" routerLink="/auth/login"><button type="submit" class="btn btn-info">Login</button></a>
+  
+        <a class="nav-link" *ngIf="isLogged"><button type="submit" class="btn btn-danger" (click)="onLogOut()">Logout</button></a>
+     
+
+      <!--
         <div class="login-container">
+         
+          
             <form action="/action_page.php">
+              
               <input type="text" placeholder="Username" name="username">
               <input type="text" placeholder="Password" name="psw">
-              <button type="submit" class="btn btn-info">Login</button>
+              -->
+              
+              
+              
               <!--
                <button class="btn btn-info" routerLink="acerca">Login </button>
-               -->
+               
             </form>
+            
         </div>
+        -->
       </div>
     </div>
   </nav>

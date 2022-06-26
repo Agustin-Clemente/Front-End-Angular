@@ -6,6 +6,8 @@ import { AgregarExperienciaComponent } from './components/agregar-experiencia/ag
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { GuardService as guard } from './guards/guard.service';
 
 const routes: Routes = [
  /*
@@ -20,13 +22,13 @@ const routes: Routes = [
   {path:'portfolio', component: HomeComponent},
   {path:'', redirectTo:'portfolio', pathMatch:'full'},
   {path:'', component: HomeComponent},
-  
-  {path:'agregar-experiencia/:id', component: AgregarExperienciaComponent},
-  {path: 'acerca', component: AcercaDeComponent}
+  {path:'auth/login', component:LoginComponent},
+  {path:'agregar-experiencia/:id', component: AgregarExperienciaComponent,canActivate: [guard], data: {expectedRol: ['admin']}},
+  //{path: 'acerca', component: AcercaDeComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

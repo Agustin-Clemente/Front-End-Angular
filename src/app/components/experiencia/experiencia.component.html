@@ -1,5 +1,5 @@
-<div class = "card mat-card">
-    <div id="experience">
+<div class = "card mat-card" id="experience">
+    <div>
     <div class="card-titles">
     <h2>Experiencia
         <!--<button class="btn-edit" routerLink="agregar-experiencia" routerLinkActive="active"> Agregar</button>-->
@@ -8,13 +8,15 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregar"></button>
         -->
     <button
-  style="margin: 50px; padding: 10px"
+  style="margin: 15px; padding: 10px"
   type="button"
-  class="btn btn-primary"
+  class="btn btn-primary" *ngIf="isAdmin"
   (click)="openPopup()">Agregar
 </button>
 </h2>
     </div>
+
+    <br *ngIf="!isAdmin" >
     
     <div>
         <ul class="items-list ">
@@ -30,10 +32,11 @@
                     <h3>{{experiencia.sector}}</h3>
                     <p>{{experiencia.cargo}} ({{experiencia.jornada}})--
                     <time>{{experiencia.desde}}</time> - <time>{{experiencia.hasta}}</time></p>
+                    <br>
                     <!--
                     <div class="btn-edit btn-right" (click)="abrirPopup()"> <i class="fa fa-pen"></i>
                         -->
-                        <div>
+                        <div *ngIf="isAdmin">
                             <button (click)= "onEdit(experiencia.id)" class="btn btn-info">Editar</button>
                             <!--
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editar(experiencia)"></button>
