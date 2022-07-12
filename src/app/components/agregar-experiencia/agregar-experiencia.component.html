@@ -8,7 +8,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Actualizar experiencia</h4>
+        <h4 class="modal-title" id="titulo">Actualizar experiencia</h4>
       </div>
       <div class="modal-body">
         <!--<p>One Stop Solution for all CS problems</p>-->
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label>Desde: </label>
-                    <input type="text" class="form-control" id="desde" [(ngModel)]="exp.desde" name="desde" required placeholder="Ingrese fecha de inicio" 
+                    <input type="date" class="form-control" id="desde" [(ngModel)]="exp.desde" name="desde" required placeholder="Ingrese fecha de inicio" 
                     #desde = "ngModel">
                     <div class = "alert alert-danger" *ngIf= "desde.invalid && (desde.dirty || desde.touched)">
                         <div *ngIf= "desde.errors?.['required']"> Ingrese fecha de inicio</div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             
-                <button class="btn btn-success" (click)="agregarExp(exp)" [disabled]="!cargoForm.form.valid">Guardar</button>
+                <button class="btn btn-success" id="guardar" (click)="agregarExp(exp)" [disabled]="!cargoForm.form.valid">Guardar</button>
                 <button type="button" class="btn btn-danger" 
                 (click)="volverAHome()">
           Cancelar

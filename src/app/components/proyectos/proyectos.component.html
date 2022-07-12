@@ -1,7 +1,16 @@
+<span class="anchor" id="projects"></span>
 <div class = "card mat-card">
     <div id="projects">
     <div class="card-titles">
-    <h2>Proyectos</h2>
+    <h2>Proyectos
+
+        <button
+  style="margin: 15px; padding: 10px"
+  type="button"
+  class="btn btn-primary" id="btn-agregar" data-toggle="modal" data-target="#agregar" *ngIf="isAdmin"
+  (click)="showModal()">Agregar
+</button>
+    </h2>
     <!--<div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>-->
     </div>
 
@@ -14,16 +23,24 @@
                     <img class = "logo-image" [src]="proyecto.img"/>
                 </div>
             </a>
-                <div class="list-info">
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fapen" id="btn-edit" data-toggle="modal" data-target="#editar" (click)="abrir(proyecto.id)"></fa-icon>
+            </div>
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fatrashcan" id="btn-trash"  (click)="onDelete(proyecto.id)"></fa-icon>
+            </div>
+            
+                <div class="list-info ">
                    <div>
                     <h3>{{proyecto.titulo}}</h3>
                     <p>{{proyecto.anio}}</p>
                     <p>{{proyecto.descripcion}}</p>
-                    <div class="btn-edit btn-right"> <i class="fa fa-pen"></i>
-                    <!--<fa-icon [icon]="fatimes" (click)="onDelete()" class="btn-edit"></fa-icon>-->
-                    </div>
+                    <!--<div class="btn-edit btn-right"> <i class="fa fa-pen"></i>
+                    <fa-icon [icon]="fatimes" (click)="onDelete()" class="btn-edit"></fa-icon>
+                    </div>-->
                 </div>
                 </div>
+                
                 
                 </div>
             </li>
@@ -45,5 +62,187 @@
 
     </div>
 
+ 
 
 </div>
+<!--
+<ng-template #agregar let-modal *ngIf="show">
+-->
+<!--
+    <ng-container  #agregar *ngIf="show">
+<div
+  class="modal"
+  id="agregar"
+  tabindex="-1"
+  
+  role="dialog"
+  aria-labelledby="agregarLabel"
+  aria-hidden="true"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        -->
+        <ng-container *ngIf="show">
+            <div class="modalc">
+                <div class="modalc-content">
+                    <div class="modalc-title">
+        <h4  id="titulo">Nuevo proyecto</h4>
+      </div>
+      <div class="modal-body">
+        <!--<p>One Stop Solution for all CS problems</p>-->
+        <!--<div class="col-md-6 offset-md-3">-->
+            <!--<h3 class="center">Nueva experiencia</h3>-->
+            <form  #nuevoProyForm = "ngForm">
+                <div class="form-group">
+                    <label>Título: </label>
+                    <input type="text" class="form-control" id="tituloProy" [(ngModel)]="proye.titulo" name="titulo" required placeholder="Ingrese el título" 
+                    #titulo = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "titulo.invalid && (titulo.dirty || titulo.touched)">
+                        <div *ngIf= "titulo.errors?.['required']"> Ingrese el título</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Año: </label>
+                    <input type="number" min="1900" max="2050" class="form-control" id="anio" [(ngModel)]="proye.anio" name="anio" required placeholder="Ingrese el año" 
+                    #anio = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "anio.invalid && (anio.dirty || anio.touched)">
+                        <div *ngIf="anio.errors?.['min']" > Ingrese un año entre 1900 y el actual </div>
+                        <div *ngIf="anio.errors?.['max']" > Ingrese un año entre 1900 y el actual </div>
+                        <div *ngIf= "anio.errors?.['required']"> Ingrese el año</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descripción: </label>
+                    <input type="text" class="form-control" id="descripcion" [(ngModel)]="proye.descripcion" name="descripcion" required placeholder="Ingrese la descripción" 
+                    #descripcion = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <div *ngIf= "descripcion.errors?.['required']"> Ingrese la descripción</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Img: </label>
+                    <input type="text" class="form-control" id="img" [(ngModel)]="proye.img" name="img" required placeholder="Ingrese dirección de imagen" 
+                    #imagen = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+                        <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+                    </div>
+                </div>
+            
+                <button class="btn btn-success" id="guardar" (click)="onSubmit()" [disabled]="!nuevoProyForm.form.valid">Guardar</button>
+                <button type="button" class="btn btn-danger"
+                (click)="hideModal()">
+          Cancelar
+        </button>
+            </form>
+            
+            <!--</div>-->
+  
+      </div>
+      <!--
+      <div class="modal-footer">
+        <button class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Cancelar
+        </button>
+      </div>
+      -->
+    </div>
+  </div>
+    </ng-container>
+<!--
+</ng-template>
+-->
+<!--
+<ng-template #editar let-modal >
+    -->
+    
+    <!--
+<div
+  class="modal"
+  id="editar"
+  tabindex="-1"
+  
+  role="dialog"
+  aria-labelledby="editarLabel"
+  aria-hidden="true"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+-->
+        <ng-container *ngIf="mostrar">
+            <div class="modalc">
+                <div class="modalc-content">
+                    <div class="modalc-title">
+        <h4  id="titulo">Editar proyecto</h4>
+      </div>
+      <div class="modal-body">
+        <!--<p>One Stop Solution for all CS problems</p>-->
+        <!--<div class="col-md-6 offset-md-3">-->
+            <!--<h3 class="center">Nueva experiencia</h3>-->
+            <form  #editarProyForm = "ngForm">
+                <div class="form-group">
+                    <label>Título: </label>
+                    <input type="text" class="form-control" id="tituloProy" [(ngModel)]="proy.titulo" name="titulo" required placeholder="Ingrese el título" 
+                    #titulo = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "titulo.invalid && (titulo.dirty || titulo.touched)">
+                        <div *ngIf= "titulo.errors?.['required']"> Ingrese el título</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Año: </label>
+                    <input type="number" min="1900" max="2050" class="form-control" id="anio" [(ngModel)]="proy.anio" name="anio" required placeholder="Ingrese el año" 
+                    #anio = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "anio.invalid && (anio.dirty || anio.touched)">
+                        <div *ngIf="anio.errors?.['min']" > Ingrese un año entre 1900 y el actual </div>
+                        <div *ngIf="anio.errors?.['max']" > Ingrese un año entre 1900 y el actual </div>
+                        <div *ngIf= "anio.errors?.['required']"> Ingrese el año</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descripción: </label>
+                    <input type="text" class="form-control" id="descripcion" [(ngModel)]="proy.descripcion" name="descripcion" required placeholder="Ingrese la descripción" 
+                    #descripcion = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <div *ngIf= "descripcion.errors?.['required']"> Ingrese la descripción</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Img: </label>
+                    <input type="text" class="form-control" id="img" [(ngModel)]="proy.img" name="img" required placeholder="Ingrese dirección de imagen" 
+                    #imagen = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+                        <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+                    </div>
+                </div>
+            
+                <button class="btn btn-success" id="guardar" (click)="editarProy(proy)" [disabled]="!editarProyForm.form.valid">Guardar</button>
+                <button type="button" class="btn btn-danger"
+                (click)="cerrar()">
+          Cancelar
+        </button>
+            </form>
+            
+            <!--</div>-->
+  
+      </div>
+      <!--
+      <div class="modal-footer">
+        <button class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Cancelar
+        </button>
+      </div>
+      -->
+    </div>
+  </div>
+        </ng-container>
+
+<!--
+</ng-template>
+-->
+
+

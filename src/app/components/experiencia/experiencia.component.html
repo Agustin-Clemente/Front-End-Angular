@@ -1,4 +1,5 @@
-<div class = "card mat-card" id="experience">
+<span class="anchor"  id="experience"></span>
+<div class = "card mat-card">
     <div>
     <div class="card-titles">
     <h2>Experiencia
@@ -10,7 +11,7 @@
     <button
   style="margin: 15px; padding: 10px"
   type="button"
-  class="btn btn-primary" *ngIf="isAdmin"
+  class="btn btn-primary" id="btn-agregar" *ngIf="isAdmin"
   (click)="openPopup()">Agregar
 </button>
 </h2>
@@ -18,36 +19,65 @@
 
     <br *ngIf="!isAdmin" >
     
-    <div>
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
         <ul class="items-list ">
-                <li *ngFor="let experiencia of listaExperiencia">
+                <li *ngFor="let experiencia of listaExperiencia"  cdkDrag>
+                    <div *ngIf="isAdmin" class="example-handle" cdkDragHandle>
+                        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div *ngIf="!isAdmin" class="example-handle" cdkDragHandle></div>
                 <div class="data-containter  col-md-12">
+<!--
+                    <ul>
+                        <li *ngIf="isAdmin"><fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(experiencia.id)"></fa-icon></li>
+                        <li *ngIf="isAdmin"> <fa-icon [icon]="fapen" id="btn-edit" (click)="onEdit(experiencia.id)"></fa-icon></li>
+                    </ul>
+                    -->
+                    
+                    
+                    
+                        <!--<button (click)= "onEdit(experiencia.id)" class="btn btn-info">Editar</button>-->
+                        <!--
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editar(experiencia)"></button>
+                    
+                    <button type="button" class="btn btn-primary" (click)="onEdit(experiencia.id)"  routerLink="agregar-experiencia">
+                        Editar
+                      </button>
+                      -->
+                     
                 <a href="#">
                 <div class="logo-image-container">
-                    <img class = "logo-image" [src]="experiencia.img"/>
+                    <img class = "logo-image" [src]="experiencia.img" />
                 </div>
             </a>
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fapen" id="btn-edit" (click)="onEdit(experiencia.id)"></fa-icon>
+            </div>
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(experiencia.id)"></fa-icon>
+            </div>
+           
+            
                 <div class="list-info">
                    <div>
                     <h3>{{experiencia.sector}}</h3>
                     <p>{{experiencia.cargo}} ({{experiencia.jornada}})--
-                    <time>{{experiencia.desde}}</time> - <time>{{experiencia.hasta}}</time></p>
+                    <time> Desde: {{experiencia.desde}}</time> - <time>Hasta: {{experiencia.hasta}}</time></p>
                     <br>
+                    
+                  
                     <!--
                     <div class="btn-edit btn-right" (click)="abrirPopup()"> <i class="fa fa-pen"></i>
                         -->
-                        <div *ngIf="isAdmin">
-                            <button (click)= "onEdit(experiencia.id)" class="btn btn-info">Editar</button>
-                            <!--
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editar(experiencia)"></button>
-                        
-                        <button type="button" class="btn btn-primary" (click)="onEdit(experiencia.id)"  routerLink="agregar-experiencia">
-                            Editar
-                          </button>
-                          -->
-                    <fa-icon [icon]="fatimes" (click)="onDelete(experiencia.id)" class="btn-edit"></fa-icon></div>
+                      
                 </div>
+                
+                
                 </div>
+                
                 
                 </div>
              
@@ -71,7 +101,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Nueva experiencia</h4>
+        <h4  id="titulo">Nueva experiencia</h4>
       </div>
       <div class="modal-body">
         <!--<p>One Stop Solution for all CS problems</p>-->
@@ -112,7 +142,7 @@
                 </div>
                 <div class="form-group">
                     <label>Hasta: </label>
-                    <input type="text" class="form-control" id="hasta" [(ngModel)]="exp.hasta" name="hasta" required placeholder="Ingrese fecha de fin" 
+                    <input type="text" class="form-control" onkeypress="return (event.charCode!= 47)" id="hasta" [(ngModel)]="exp.hasta" name="hasta" required placeholder="Ingrese fecha de fin" 
                     #hasta = "ngModel">
                     <div class = "alert alert-danger" *ngIf= "hasta.invalid && (hasta.dirty || hasta.touched)">
                         <div *ngIf= "hasta.errors?.['required']"> Ingrese fecha de fin</div>
@@ -127,8 +157,8 @@
                     </div>
                 </div>
             
-                <button class="btn btn-success" (click)="closePopup()" [disabled]="!cargoForm.form.valid">Guardar</button>
-                <button type="button" class="btn btn-danger" 
+                <button class="btn btn-success" id="guardar" (click)="closePopup()" [disabled]="!cargoForm.form.valid">Guardar</button>
+                <button type="button" class="btn btn-danger"
                 (click)="closePopup()">
           Cancelar
         </button>

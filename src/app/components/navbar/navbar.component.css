@@ -18,6 +18,10 @@
     color: aqua;
 }
 
+#navbar{
+    transition: top 0.3s;
+}
+
 .navbar-brand{
     color: aqua;
     font-weight:700;
@@ -32,6 +36,13 @@
     color: aqua;
     cursor: pointer;
 }
+
+.navbar-toggler{
+    color:aqua;
+}
+
+
+
 
 
 

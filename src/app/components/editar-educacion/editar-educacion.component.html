@@ -1,0 +1,71 @@
+<ng-container *ngIf="show">
+<div class="modalc">
+    <div class="modalc-content">
+        <div class="modalc-title">
+            <h4 id="titulo">Actualizar educación</h4>
+        </div>
+        <div class="modalc-container">
+            <form (ngSubmit)="onSubmit()" #eduForm = "ngForm">
+                <div class="form-group">
+                    <label>Institución: </label>
+                    <input type="text" class="form-control" id="institucion"[(ngModel)]="edu.institucion" name="institucion" [value]=edu.institucion required placeholder="Ingrese la institución" 
+                    #institucion = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "institucion.invalid && (institucion.dirty || institucion.touched)">
+                        <div *ngIf= "institucion.errors?.['required']"> Ingrese la institución</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Título: </label>
+                    <input type="text" class="form-control" id="titulo" [(ngModel)]="edu.titulo" name="titulo" required placeholder="Ingrese el título" 
+                    #titulo = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "titulo.invalid && (titulo.dirty || titulo.touched)">
+                        <div *ngIf= "titulo.errors?.['required']"> Ingrese el título</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Desde: </label>
+                    <input type="date" class="form-control" id="desde" [(ngModel)]="edu.desde" name="desde" required placeholder="Ingrese fecha de inicio" 
+                    #desde = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "desde.invalid && (desde.dirty || desde.touched)">
+                        <div *ngIf= "desde.errors?.['required']"> Ingrese fecha de inicio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Hasta: </label>
+                    <input type="text" class="form-control" id="hasta" [(ngModel)]="edu.hasta" name="hasta" required placeholder="Ingrese fecha de fin" 
+                    #hasta = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "hasta.invalid && (hasta.dirty || hasta.touched)">
+                        <div *ngIf= "hasta.errors?.['required']"> Ingrese fecha de fin</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Img: </label>
+                    <input type="text" class="form-control" id="img" [(ngModel)]="edu.img" name="img" required placeholder="Ingrese dirección de imagen" 
+                    #imagen = "ngModel">
+                    <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+                        <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+                    </div>
+                </div>
+            
+                <button class="btn btn-success" id="guardar" (click)="agregarEdu(edu)" [disabled]="!eduForm.form.valid">Guardar</button>
+               <!--
+                <button type="button" class="btn btn-danger" 
+               (click)="volverAHome()">
+          Cancelar
+        </button>
+        -->
+        <button type="button" class="btn btn-danger" 
+        (click)="show=false;">
+   Cancelar
+ </button>
+            </form>
+            
+            <!--</div>-->
+  
+   
+        </div>
+
+    </div>
+
+</div>
+</ng-container>

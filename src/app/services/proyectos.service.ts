@@ -15,4 +15,20 @@ export class ProyectosService {
   public obtenerProyectos():Observable<proyectos[]>{
     return this.http.get<proyectos[]>(this.url + 'ver/proyecto');
   }
+
+  public delete(id:number):Observable<Object>{
+    return this.http.delete(`${this.url}deleteproy/${id}`);
+  }
+
+  agregarProy(proy: proyectos):Observable<Object>{
+    return this.http.post(`${this.url}new/proyecto`, proy);
+  }
+
+  public buscarProyecto( id: number ):Observable<proyectos>{
+    return this.http.get<proyectos>(`${this.url}buscar/proyecto/${id}`);
+  }
+
+  public editarProyecto(id: number, proy:proyectos):Observable<Object>{
+    return this.http.put(`${this.url}editar/proyecto/${id}`,proy);
+  }
 }

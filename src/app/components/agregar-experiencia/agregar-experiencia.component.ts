@@ -4,6 +4,7 @@ import { AppComponent } from 'src/app/app.component';
 import { experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { HomeComponent } from '../home/home.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-agregar-experiencia',
@@ -33,9 +34,32 @@ export class AgregarExperienciaComponent implements OnInit {
   }
 
   onSubmit(){
+    Swal.fire({
+      title: '¿Quieres guardar los cambios?',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      denyButtonText: `No guardar`,
+      cancelButtonText: 'Cancelar',
+       color:'red',
+          background: 'black'
+    }).then((result) => {
+      if (result.isConfirmed) {
     this.experienciaserv.editarExp(this.id,this.exp).subscribe(data=>{
       this.volverAHome();
+    })
       //this.experienciaserv.obtenerExperiencia();
+      Swal.fire({
+        title: 'Los cambios se guardaron con éxito',
+        icon: 'success',
+        color:'green',
+          background: 'black',
+        confirmButtonColor: 'green'
+      })
+  } else if (result.isDenied) {
+    Swal.fire('No se guardaron los cambios', '', 'info')
+  }
+
       
     });
   
@@ -70,6 +94,38 @@ export class AgregarExperienciaComponent implements OnInit {
     })
   }
 
+  public agregarExp(exp:experiencia){
+  Swal.fire({
+    title: '¿Quieres guardar los cambios?',
+    showDenyButton: false,
+    showCancelButton: true,
+    confirmButtonText: 'Guardar',
+    denyButtonText: `No guardar`,
+    cancelButtonText: 'Cancelar',
+     color:'red',
+        background: 'black'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.editar();
+    this.experienciaserv.agregarExp(exp).subscribe(data=>{
+
+      this.experienciaserv.obtenerExperiencia();
+    this.volverAHome();
+  })
+  Swal.fire({
+    title: 'Los cambios se guardaron con éxito',
+    icon: 'success',
+    color:'green',
+      background: 'black',
+    confirmButtonColor: 'green'
+  })
+  } else if (result.isDenied) {
+    Swal.fire('No se guardaron los cambios', '', 'info')
+  }
+})
+}
+
+  /* ESTO FUNCIONA
   agregarExp(exp:experiencia){
     this.editar();
     this.experienciaserv.agregarExp(exp).subscribe(data=>{
@@ -79,7 +135,7 @@ export class AgregarExperienciaComponent implements OnInit {
     
   });
 }
-
+*/
 /*
 onSubmit(){
   this.agregarExp(this.exp);

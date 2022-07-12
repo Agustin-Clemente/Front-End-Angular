@@ -29,8 +29,40 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
+
   public onClick(elementId: string): void { 
+    
+    
     this.viewportScroller.scrollToAnchor(elementId);
-}
 
 }
+
+
+}
+
+
+/*
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-75px";
+  }
+  prevScrollpos = currentScrollPos;
+
+}
+  */
+
+/*
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-50px";
+  }
+} 
+*/

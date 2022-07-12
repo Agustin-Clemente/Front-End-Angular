@@ -1,0 +1,24 @@
+.form-control{
+    border-color: aquamarine;
+    color:aquamarine;
+    background-color: transparent;
+}
+
+.modal-body{
+    background-color: black;
+}
+
+.modal-header{
+    background-color: black;
+    border-color: black;
+    padding-right: 0%;
+  
+}
+
+#titulo{
+    padding-left: 25%;
+}
+
+#guardar{
+    margin-right: 20px;
+}

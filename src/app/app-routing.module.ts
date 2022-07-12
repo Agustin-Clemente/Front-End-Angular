@@ -7,6 +7,7 @@ import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditarEducacionComponent } from './components/editar-educacion/editar-educacion.component';
 import { GuardService as guard } from './guards/guard.service';
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'auth/login', component:LoginComponent},
   {path:'agregar-experiencia/:id', component: AgregarExperienciaComponent,canActivate: [guard], data: {expectedRol: ['admin']}},
+  
+  //{path:'editar-educacion/:id', component: EditarEducacionComponent,canActivate: [guard], data: {expectedRol: ['admin']}},
   //{path: 'acerca', component: AcercaDeComponent}
 ];
 

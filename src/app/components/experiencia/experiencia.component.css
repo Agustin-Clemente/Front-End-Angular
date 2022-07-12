@@ -1,30 +1,68 @@
-
-
-.fa-icon{
-    color: red;
+#btn-agregar{
+    color: black;
+    background-color: aqua;
+    font-weight: 600;
 }
 
 fa-icon{
-    color: red;
-        display: block;
+    color: black;
         height: 2.4rem;
         width: 2.4rem;
         line-height: 2.4rem;
         text-align: center;
         border-radius: 50%;
-        background: white;
         cursor: pointer;
 }
 
-fa-icon:hover{
-    background:gray;
-}
 
 h2{
     padding-right:10.5em;
 }
 
-.btn-edit{
+
+#btn-edit{
+    background-color: aqua;
     font-size: medium;
+    float: right;
+    margin-bottom: 5px;
+    
+
 }
 
+#btn-trash{
+  display: inline-block;
+  float: right;
+  clear: right;
+  background-color: lightcoral;
+}
+
+.modal-body{
+    background-color: black;
+}
+
+.modal-header{
+    background-color: black;
+    border-color: black;
+    padding-right: 0%;
+  
+}
+
+
+.form-control{
+    border-color: aquamarine;
+    color:aquamarine;
+    background-color: transparent;
+}
+
+
+#titulo{
+    padding-left: 29%;
+}
+
+#guardar{
+    margin-right: 20px;
+}
+
+.example-handle {
+    cursor: move;
+  }

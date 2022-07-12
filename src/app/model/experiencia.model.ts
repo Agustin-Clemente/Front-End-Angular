@@ -4,7 +4,7 @@ export class experiencia {
     sector: String;
     jornada: String;
     desde: String;
-    hasta: String;
+    hasta: string;
     img: String;
 
 

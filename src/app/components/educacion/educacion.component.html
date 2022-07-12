@@ -1,8 +1,19 @@
-<div class = "card mat-card" id="education">
-    <div id="education">
+<span class="anchor" id="education"></span>
+<div class = "card mat-card" >
+    <div>
         <div class="card-titles">
-        <h2>Educación</h2>
+        <h2>Educación
+            <button
+            style="margin: 15px; padding: 10px"
+            type="button"
+            class="btn btn-primary" id="btn-agregar" *ngIf="isAdmin"
+            (click)="agregarEdu.showModal()">Agregar
+          </button>
+        </h2>
     </div>
+    <app-agregar-educacion #agregarEdu></app-agregar-educacion>
+
+    <br *ngIf="!isAdmin" >
 
     <div>
         <ul class="items-list ">
@@ -14,12 +25,25 @@
                     <img class = "logo-image" [src]="educacion.img"/>
                 </div>
             </a>
+            <div *ngIf="isAdmin">
+               <!--
+                <fa-icon [icon]="fapen" id="btn-edit" (click)="onEdit(educacion.id)"></fa-icon>
+                
+                -->
+                <fa-icon [icon]="fapen" id="btn-edit" (click)="(editarEdu.showModal(educacion.id))"></fa-icon>
+                
+            </div>
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(educacion.id)"></fa-icon>
+            </div>
+
                 <div class="list-info">
                    <div>
                     <h3>{{educacion.institucion}}</h3>
                     <p>{{educacion.titulo}} --
-                    <time>{{educacion.desde}}</time> - <time>{{educacion.hasta}}</time></p>
-                    <div class="btn-edit btn-right"> <i class="fa fa-pen"></i></div>
+                    <time>Desde: {{educacion.desde}}</time> - <time>Hasta: {{educacion.hasta}}</time></p>
+                    <!--<div class="btn-edit btn-right"> <i class="fa fa-pen"></i></div>-->
+                    <br>
                 </div>
                 </div>
                 
@@ -37,3 +61,4 @@
 
     </div>
     </div>
+    <app-editar-educacion #editarEdu></app-editar-educacion>

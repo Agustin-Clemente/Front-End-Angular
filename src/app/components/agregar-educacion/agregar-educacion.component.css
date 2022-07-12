@@ -1,0 +1,48 @@
+.modalc {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1000;
+}
+    
+    .modalc-content{
+width: 100%;
+max-width: 500px;
+    }
+
+    .modal-header{
+        height: 93px;
+        display: flex;
+        align-items: center;
+        padding: 0.32px;
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+        justify-content: space-between;
+        border-radius: 4px,4px,0,0;
+    }
+
+    .modalc-container{
+        padding: 32 px;
+        background:black;
+        border-radius: 0,0,4px,4px;
+    }
+
+    h4{
+        text-align: center;
+    }
+
+
+.form-control{
+    border-color: aquamarine;
+    color:aquamarine;
+    background-color: black;
+}

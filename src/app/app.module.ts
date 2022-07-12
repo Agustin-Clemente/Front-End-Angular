@@ -20,8 +20,12 @@ import { AgregarExperienciaComponent } from './components/agregar-experiencia/ag
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { InterceptorService } from './services/interceptor.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { EditarEducacionComponent } from './components/editar-educacion/editar-educacion.component';
+import { AgregarEducacionComponent } from './components/agregar-educacion/agregar-educacion.component'; 
 //import { ExtraOptions, RouterModule, Routes, RoutesRecognized } from '@angular/router';
 //import { InterceptorService } from './services/interceptor.service';
+
 
 
 
@@ -39,6 +43,8 @@ import { InterceptorService } from './services/interceptor.service';
     AgregarExperienciaComponent,
     HomeComponent,
     LoginComponent,
+    EditarEducacionComponent,
+    AgregarEducacionComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,7 @@ import { InterceptorService } from './services/interceptor.service';
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    DragDropModule,
   ],
   
   providers: [PortfolioService, //InterceptorService
