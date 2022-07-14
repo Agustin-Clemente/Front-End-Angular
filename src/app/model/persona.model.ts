@@ -7,6 +7,7 @@ export class persona {
     profesion: String;
     ubicacion: String;
 
+    /*
     constructor(nombre: String, apellido: String, img: String, acercade:String, profesion:String, ubicacion:String){
         this.nombre = nombre;
         this.apellido = apellido;
@@ -16,5 +17,6 @@ export class persona {
         this.ubicacion= ubicacion;
 
     }
+    */
 
 }

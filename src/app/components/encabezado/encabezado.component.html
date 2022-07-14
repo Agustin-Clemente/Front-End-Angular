@@ -4,7 +4,12 @@
         
     <div id="info-img">
     <img class="profile-image" [src]="persona.img">
+    <div *ngIf="isAdmin">
+        <fa-icon [icon]="fapen" id="btn-edit" (click)="abrir(persona.id)"></fa-icon>
+    </div>
+    <!--
     <div class="btn-edit" class="btn-right"><i class="fa fa-pen"></i></div>
+    -->
     </div>
     <div id="info-data">
         <div>
@@ -29,3 +34,79 @@
   </div>
       
   </div>
+
+  <ng-container *ngIf="mostrar">
+    <div class="modalc">
+        <div class="modalc-content">
+            <div class="modalc-title">
+<h4  id="titulo">Editar datos</h4>
+</div>
+<div class="modal-body">
+<!--<p>One Stop Solution for all CS problems</p>-->
+<!--<div class="col-md-6 offset-md-3">-->
+    <!--<h3 class="center">Nueva experiencia</h3>-->
+    <form  #editarPersonaForm = "ngForm">
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="perso.nombre" name="nombre" required placeholder="Ingrese el nombre" 
+            #nombre = "ngModel">
+            <div class = "alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf= "nombre.errors?.['required']"> Ingrese el nombre</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Apellido: </label>
+            <input type="text" class="form-control" id="apellido" [(ngModel)]="perso.apellido" name="apellido" required placeholder="Ingrese el apellido" 
+            #apellido = "ngModel">
+            <div class = "alert alert-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf= "apellido.errors?.['required']"> Ingrese el apellido</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Profesión: </label>
+            <input type="text" class="form-control" id="profesion" [(ngModel)]="perso.profesion" name="profesion" required placeholder="Ingrese la profesión" 
+            #profesion = "ngModel">
+            <div class = "alert alert-danger" *ngIf= "profesion.invalid && (profesion.dirty || profesion.touched)">
+                <div *ngIf= "profesion.errors?.['required']"> Ingrese la profesión</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Ubicación: </label>
+            <input type="text" class="form-control" id="ubicacion" [(ngModel)]="perso.ubicacion" name="ubicacion" required placeholder="Ingrese la ubicación" 
+            #ubicacion = "ngModel">
+            <div class = "alert alert-danger" *ngIf= "ubicacion.invalid && (ubicacion.dirty || ubicacion.touched)">
+                <div *ngIf= "ubicacion.errors?.['required']"> Ingrese la ubicación/div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Img: </label>
+            <input type="text" class="form-control" id="img" [(ngModel)]="perso.img" name="img" required placeholder="Ingrese dirección de imagen" 
+            #imagen = "ngModel">
+            <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+                <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+            </div>
+        </div>
+    
+        <button class="btn btn-success" id="guardar" (click)="editarPerso(perso)" [disabled]="!editarPersonaForm.form.valid">Guardar</button>
+        <button type="button" class="btn btn-danger"
+        (click)="cerrar()">
+  Cancelar
+</button>
+        </div>
+    </form>
+    
+    <!--</div>-->
+
+</div>
+<!--
+<div class="modal-footer">
+<button class="btn btn-success">Guardar</button>
+<button type="button" class="btn btn-danger" 
+        (click)="closePopup()">
+  Cancelar
+</button>
+</div>
+-->
+</div>
+</div>
+</ng-container>

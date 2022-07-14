@@ -14,10 +14,10 @@
         <!--<p>One Stop Solution for all CS problems</p>-->
         <!--<div class="col-md-6 offset-md-3">-->
             <!--<h3 class="center">Nueva experiencia</h3>-->
-            <form (ngSubmit)="onSubmit()" #cargoForm = "ngForm">
+            <form  #expForm = "ngForm">
                 <div class="form-group">
                     <label>Cargo: </label>
-                    <input type="text" class="form-control" id="cargo" [(ngModel)]="exp.cargo" name="cargo" [value]=exp.cargo required placeholder="Ingrese el cargo" 
+                    <input type="text" class="form-control" id="cargo" [(ngModel)]="exp.cargo" name="cargo" required placeholder="Ingrese el cargo" 
                     #cargo = "ngModel">
                     <div class = "alert alert-danger" *ngIf= "cargo.invalid && (cargo.dirty || cargo.touched)">
                         <div *ngIf= "cargo.errors?.['required']"> Ingrese el cargo</div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
             
-                <button class="btn btn-success" id="guardar" (click)="agregarExp(exp)" [disabled]="!cargoForm.form.valid">Guardar</button>
+                <button class="btn btn-success" id="guardar" (click)="editarExp()" [disabled]="!expForm.form.valid">Guardar</button>
                 <button type="button" class="btn btn-danger" 
                 (click)="volverAHome()">
           Cancelar

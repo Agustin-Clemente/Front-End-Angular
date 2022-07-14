@@ -35,7 +35,7 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void {
     this.proyectoService.obtenerProyectos().subscribe(data=>{
-      this.listaProyectos=data;
+      this.listaProyectos=data.sort((a,b)=>b.anio-a.anio);
     })
 
     this.roles = this.tokenServ.getAuthorities();
@@ -64,7 +64,7 @@ export class ProyectosComponent implements OnInit {
         this.proyectoService.delete(id).subscribe(data=>{
           console.log(data);
           this.proyectoService.obtenerProyectos().subscribe(dato=>{
-            this.listaProyectos=dato;
+            this.listaProyectos=dato.sort((a,b)=>b.anio-a.anio);
           });
         });
         Swal.fire({
@@ -117,7 +117,7 @@ export class ProyectosComponent implements OnInit {
       console.log(data);
       //this.volverAHome();
       this.proyectoService.obtenerProyectos().subscribe(dato=>{
-        this.listaProyectos=dato;
+        this.listaProyectos=dato.sort((a,b)=>b.anio-a.anio);
         this.hideModal();
       });
       Swal.fire({
@@ -150,7 +150,7 @@ export class ProyectosComponent implements OnInit {
       this.proyectoService.editarProyecto(proy.id,proy).subscribe(()=>{
         
         this.proyectoService.obtenerProyectos().subscribe(dato=>{
-          this.listaProyectos=dato;
+          this.listaProyectos=dato.sort((a,b)=>b.anio-a.anio);
         
         this.cerrar();
        // this.volverAHome();

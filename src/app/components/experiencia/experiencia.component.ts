@@ -33,7 +33,6 @@ export class ExperienciaComponent implements OnInit {
   constructor(private experienciaService:ExperienciaService, private route: ActivatedRoute,private router:Router, private tokenServ:TokenService) { }
 
   ngOnInit(): void {
-    
   
     /*
     this.route.params.subscribe(params => {

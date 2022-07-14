@@ -1,23 +1,84 @@
 <span class="anchor" id="acercade"></span>
 <div class = "card mat-card" >
     <div class="card-titles">
-    <h2>Acerca de</h2>
+    <h2>Acerca de
+    
+        <fa-icon *ngIf="isAdmin" [icon]="fapen" id="btn-edit" (click)="abrir(persona.id)"></fa-icon>
+    
+</h2>
+     <!--
     <div class="btn-edit" onclick="cambiar_parrafo()">
-        <!--
+       
     <a href="#text-acercade" class="btn-right"> 
         <i class="fa fa-pen"></i>
     </a>
-    -->
+    
     </div>
+    -->
     </div>
     
     <div>
     <p id="text-acercade">{{persona.acercade}}</p>
     </div>
+    <!--
     <div>
     <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display: none">
     </div>
+    -->
+    </div>
+
+    <ng-container *ngIf="mostrar">
+        <div class="modalc">
+            <div class="modalc-content">
+                <div class="modalc-title">
+    <h4  id="titulo">Editar acerca de</h4>
+    </div>
+    <div class="modal-body">
+    <!--<p>One Stop Solution for all CS problems</p>-->
+    <!--<div class="col-md-6 offset-md-3">-->
+        <!--<h3 class="center">Nueva experiencia</h3>-->
+        <form  #acercaDeForm = "ngForm">
+            <div class="form-group">
+                <!--
+                <label>Acerca de: </label>
+                -->
+                <div class="mb-3">
+                    <!--
+                    <label for="exampleFormControlTextarea1" class="form-label"></label>
+                    -->
+                    <textarea class="form-control" id="acercade" rows="3" [(ngModel)]="perso.acercade" name="acercade" required placeholder="Ingrese información" 
+                    #acercade = "ngModel"></textarea>
+                  </div>
+                  <!--
+                <input type="text" class="form-control" id="acercade" [(ngModel)]="perso.acercade" name="acercade" required placeholder="Ingrese información" 
+                #acercade = "ngModel">
+                -->
+                <div class = "alert alert-danger" *ngIf= "acercade.invalid && (acercade.dirty || acercade.touched)">
+                    <div *ngIf= "acercade.errors?.['required']"> Ingrese información</div>
+                </div>
+            
+            <button class="btn btn-success" id="guardar" (click)="editarAcercaDe(perso)" [disabled]="!acercaDeForm.form.valid">Guardar</button>
+            <button type="button" class="btn btn-danger"
+            (click)="cerrar()">
+      Cancelar
+    </button>
+            </div>
+        </form>
+        
+        <!--</div>-->
     
     </div>
+    <!--
+    <div class="modal-footer">
+    <button class="btn btn-success">Guardar</button>
+    <button type="button" class="btn btn-danger" 
+            (click)="closePopup()">
+      Cancelar
+    </button>
+    </div>
+    -->
+    </div>
+    </div>
+    </ng-container>
 
 

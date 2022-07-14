@@ -1,1 +1,73 @@
 
+#btn-edit{
+    background-color: aqua;
+    font-size: medium;
+    float: right;
+    margin-bottom: 5px;
+}
+
+fa-icon{
+    color: black;
+        height: 2.4rem;
+        width: 2.4rem;
+        line-height: 2.4rem;
+        text-align: center;
+        border-radius: 50%;
+        cursor: pointer;
+}
+
+.modal-body{
+    background-color: black;
+}
+
+.modal-header{
+    background-color: black;
+    border-color: black;
+    padding-right: 0%;
+  
+}
+
+
+.form-control{
+    border-color: aquamarine;
+    color:aquamarine;
+    background-color: transparent;
+}
+
+.modalc {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1000;
+}
+    
+    .modalc-content{
+width: 100%;
+max-width: 500px;
+    }
+
+    .modal-header{
+        height: 93px;
+        display: flex;
+        align-items: center;
+        padding: 0.32px;
+        background-color: white;
+        background-size: cover;
+        background-position: center;
+        justify-content: space-between;
+        border-radius: 4px,4px,0,0;
+    }
+
+    .modalc-container{
+        padding: 32 px;
+        background:black;
+        border-radius: 0,0,4px,4px;
+    }
