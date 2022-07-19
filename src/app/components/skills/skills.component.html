@@ -1,83 +1,128 @@
 <span class="anchor" id="skills"></span>
-<div class = "card mat-card">
-    <div >
+<div class="card mat-card">
+  <div>
     <div class="card-titles">
-<h2>Hard & Soft skills</h2>
-<div class="btn-edit"><a href="#" class="btn-right"> <i class="fa fa-pen"></i></a></div>
-<div class="row">
-    <div class="text-center col-sm-3 col-md-3 col-lg-3">
-    <circle-progress
-    [percent]="90"
-    [responsive]="true"
-    [radius]="100"
-    [showUnits]="false"
-    [title]="'Inglés'"
-    [titleColor]="'Aquamarine'"
-    [showSubtitle]="false"
-    [outerStrokeWidth]="16"
-    [innerStrokeWidth]="8"
-    [outerStrokeColor]="'Aquamarine'"
-    [innerStrokeColor]="'#6bd3ba'"
-    [animation]="true"
-    [animationDuration]="300"
-  ></circle-progress>
-</div>
+      <h2>Hard & Soft skills
+        <button style="margin: 15px; padding: 10px" type="button" class="btn btn-primary" id="btn-agregar"
+          data-toggle="modal" data-target="#agregar" *ngIf="isAdmin" (click)="showModal()">Agregar
+        </button>
+      </h2>
+      <ul class="items-list ">
+        <div class="row">
+          <li *ngFor="let skill of listaSkills" class="text-center col-sm-3 col-md-3 col-lg-3">
 
-<div class="text-center col-sm-3 col-md-3 col-lg-3">
-    <circle-progress
-    [percent]="60"
-    [responsive]="true"
-    [radius]="100"
-    [showUnits]="false"
-    [title]="'Trabajo en equipo'"
-    [titleColor]="'Aquamarine'"
-    [showSubtitle]="false"
-    [outerStrokeWidth]="16"
-    [innerStrokeWidth]="8"
-    [outerStrokeColor]="'Aquamarine'"
-    [innerStrokeColor]="'#6bd3ba'"
-    [animation]="true"
-    [animationDuration]="300"
-  ></circle-progress>
-</div>
 
-<div class="text-center col-sm-3 col-md-3 col-lg-3">
-    <circle-progress
-    [percent]="70"
-    [responsive]="true"
-    [radius]="100"
-    [showUnits]="false"
-    [title]="'Programación'"
-    [titleColor]="'Aquamarine'"
-    [showSubtitle]="false"
-    [outerStrokeWidth]="16"
-    [innerStrokeWidth]="8"
-    [outerStrokeColor]="'Aquamarine'"
-    [innerStrokeColor]="'#6bd3ba'"
-    [animation]="true"
-    [animationDuration]="300"
-  ></circle-progress>
-</div>
 
-<div class="text-center col-sm-3 col-md-3 col-lg-3">
-    <circle-progress
-    [percent]="100"
-    [responsive]="true"
-    [radius]="100"
-    [showUnits]="false"
-    [title]="'Responsabilidad'"
-    [titleColor]="'Aquamarine'"
-    [showSubtitle]="false"
-    [outerStrokeWidth]="16"
-    [innerStrokeWidth]="8"
-    [outerStrokeColor]="'Aquamarine'"
-    [innerStrokeColor]="'#6bd3ba'"
-    [animation]="true"
-    [animationDuration]="300"
-  ></circle-progress>
-</div>
+            <circle-progress class="circulo" [percent]="skill.porcentaje" [responsive]="true" [radius]="100"
+              [showUnits]="false" [title]="skill.titulo" [titleColor]="'Aquamarine'" [showSubtitle]="false"
+              [outerStrokeWidth]="16" [innerStrokeWidth]="4" [outerStrokeColor]="'Aquamarine'"
+              [innerStrokeColor]="'#6bd3ba'" [animation]="true" [animationDuration]="300"></circle-progress>
 
-</div>
-    </div>
-    </div>
-</div>
+
+            <div *ngIf="isAdmin">
+              <fa-icon [icon]="fapen" id="btn-edit" data-toggle="modal" data-target="#editar" (click)="abrir(skill.id)">
+              </fa-icon>
+              <fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(skill.id)"></fa-icon>
+            </div>
+
+
+
+          </li>
+        </div>
+      </ul>
+
+
+      <ng-container *ngIf="show">
+        <div class="modalc">
+          <div class="modalc-content" cdkDrag>
+            <div class="modalc-title">
+              <h4 id="titulo">Nueva skill
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <form #nuevaSkillForm="ngForm">
+                <div class="form-group">
+                  <label>Título: </label>
+                  <input type="text" class="form-control" id="tituloSkill" [(ngModel)]="nuevaSkill.titulo" name="titulo"
+                    required placeholder="Ingrese el título" #titulo="ngModel">
+                  <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+                    <div *ngIf="titulo.errors?.['required']"> Ingrese el título</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Porcentaje: </label>
+                  <input type="number" min="0" max="100" class="form-control" id="porcentaje"
+                    [(ngModel)]="nuevaSkill.porcentaje" name="porcentaje" required placeholder="Ingrese el porcentaje"
+                    #porcentaje="ngModel">
+                  <div class="alert alert-danger"
+                    *ngIf="porcentaje.invalid && (porcentaje.dirty || porcentaje.touched)">
+                    <div *ngIf="porcentaje.errors?.['min']"> Ingrese un porcentaje entre 0 y 100 </div>
+                    <div *ngIf="porcentaje.errors?.['max']"> Ingrese un porcentaje entre 0 y 100 </div>
+                    <div *ngIf="porcentaje.errors?.['required']"> Ingrese el porcentaje</div>
+                  </div>
+                </div>
+
+
+                <button class="btn btn-success" id="guardar" (click)="guardar()"
+                  [disabled]="!nuevaSkillForm.form.valid">Guardar</button>
+                <button type="button" class="btn btn-danger" (click)="hideModal()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="mostrar">
+        <div class="modalc">
+          <div class="modalc-content" cdkDrag>
+            <div class="modalc-title">
+              <h4 id="titulo">Editar skill
+                <div class="example-handle" cdkDragHandle>
+                  <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                  </svg>
+                </div>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <form #editarSkillForm="ngForm">
+                <div class="form-group">
+                  <label>Título: </label>
+                  <input type="text" class="form-control" id="tituloSkill" [(ngModel)]="skill.titulo" name="titulo"
+                    required placeholder="Ingrese el título" #titulo="ngModel">
+                  <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+                    <div *ngIf="titulo.errors?.['required']"> Ingrese el título</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Porcentaje: </label>
+                  <input type="number" min="0" max="100" class="form-control" id="porcentaje"
+                    [(ngModel)]="skill.porcentaje" name="porcentaje" required placeholder="Ingrese el porcentaje"
+                    #porcentaje="ngModel">
+                  <div class="alert alert-danger"
+                    *ngIf="porcentaje.invalid && (porcentaje.dirty || porcentaje.touched)">
+                    <div *ngIf="porcentaje.errors?.['min']"> Ingrese un porcentajeentre 0 y 100 </div>
+                    <div *ngIf="porcentaje.errors?.['max']"> Ingrese un porcentajeentre 0 y 100</div>
+                    <div *ngIf="porcentaje.errors?.['required']"> Ingrese el porcentaje</div>
+                  </div>
+                </div>
+
+                <button class="btn btn-success" id="guardar" (click)="editarSkill(skill)"
+                  [disabled]="!editarSkillForm.form.valid">Guardar</button>
+                <button type="button" class="btn btn-danger" (click)="cerrar()">Cancelar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </ng-container>

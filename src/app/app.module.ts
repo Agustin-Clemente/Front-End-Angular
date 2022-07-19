@@ -20,11 +20,9 @@ import { AgregarExperienciaComponent } from './components/agregar-experiencia/ag
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { InterceptorService } from './services/interceptor.service';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditarEducacionComponent } from './components/editar-educacion/editar-educacion.component';
-import { AgregarEducacionComponent } from './components/agregar-educacion/agregar-educacion.component'; 
-//import { ExtraOptions, RouterModule, Routes, RoutesRecognized } from '@angular/router';
-//import { InterceptorService } from './services/interceptor.service';
+import { AgregarEducacionComponent } from './components/agregar-educacion/agregar-educacion.component';
 
 
 
@@ -56,10 +54,10 @@ import { AgregarEducacionComponent } from './components/agregar-educacion/agrega
     ReactiveFormsModule,
     DragDropModule,
   ],
-  
-  providers: [PortfolioService, //InterceptorService
-  {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}
-],
+
+  providers: [PortfolioService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

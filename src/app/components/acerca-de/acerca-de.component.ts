@@ -12,44 +12,44 @@ import Swal from 'sweetalert2';
 })
 export class AcercaDeComponent implements OnInit {
   persona: persona = new persona();
-  perso:persona = new persona();
+  perso: persona = new persona();
 
-  isAdmin= false;
+  isAdmin = false;
 
   id: number;
 
-  fapen= faPen;
+  fapen = faPen;
 
-  roles : string[];
+  roles: string[];
 
-  mostrar=false;
+  mostrar = false;
 
-  constructor(public personaService : PersonaService, private tokenServ:TokenService) { }
+  constructor(public personaService: PersonaService, private tokenServ: TokenService) { }
 
   ngOnInit(): void {
-    this.personaService.getPersona().subscribe(data => {this.persona = data})
+    this.personaService.getPersona().subscribe(data => { this.persona = data })
 
     this.roles = this.tokenServ.getAuthorities();
-    this.roles.forEach(rol=>{
-      if(rol === 'ROLE_ADMIN'){
-        this.isAdmin= true;
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
       }
     });
   }
 
-  public abrir(id:number){
+  public abrir(id: number) {
     this.id = id;
-    this.personaService.buscarPersona(this.id).subscribe(dato =>{
-      this.perso = dato;})
-    this.mostrar=true; 
+    this.personaService.buscarPersona(this.id).subscribe(dato => {
+      this.perso = dato;
+    })
+    this.mostrar = true;
   }
 
-  public cerrar(){
-    this.mostrar=false;
-    //this.eduServ.obtenerEducacion();
+  public cerrar() {
+    this.mostrar = false;
   }
 
-  public editarAcercaDe(per:persona){
+  public editarAcercaDe(per: persona) {
     Swal.fire({
       title: '¿Quieres guardar los cambios?',
       showDenyButton: false,
@@ -57,37 +57,28 @@ export class AcercaDeComponent implements OnInit {
       confirmButtonText: 'Guardar',
       denyButtonText: `No guardar`,
       cancelButtonText: 'Cancelar',
-       color:'red',
-          background: 'black'
+      color: 'red',
+      background: 'black'
     }).then((result) => {
       if (result.isConfirmed) {
-        //this.editar();
-      this.personaService.editarAcercaDe(per.id,per).subscribe(()=>{
-        
-        this.personaService.getPersona().subscribe(dato=>{
-          this.persona=dato;
-        
-        this.cerrar();
-       // this.volverAHome();
-       // this.compo.traerLista();
-        //this.eduServ.obtenerEducacion().subscribe(dato=>{
-          //this.listaEducacion=dato;
-        //});
-      //this.volverAHome();
-        
+        this.personaService.editarAcercaDe(per.id, per).subscribe(() => {
+          this.personaService.getPersona().subscribe(dato => {
+            this.persona = dato;
+
+            this.cerrar();
+          })
+        })
+        Swal.fire({
+          title: 'Los cambios se guardaron con éxito',
+          icon: 'success',
+          color: 'green',
+          background: 'black',
+          confirmButtonColor: 'green'
+        })
+      } else if (result.isDenied) {
+        Swal.fire('No se guardaron los cambios', '', 'info')
+      }
     })
-   } )
-    Swal.fire({
-      title: 'Los cambios se guardaron con éxito',
-      icon: 'success',
-      color:'green',
-        background: 'black',
-      confirmButtonColor: 'green'
-    })
-    } else if (result.isDenied) {
-      Swal.fire('No se guardaron los cambios', '', 'info')
-    }
-  })
   }
 
 }

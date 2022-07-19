@@ -1,64 +1,48 @@
 <span class="anchor" id="education"></span>
-<div class = "card mat-card" >
+<div class="card mat-card">
     <div>
         <div class="card-titles">
-        <h2>Educación
-            <button
-            style="margin: 15px; padding: 10px"
-            type="button"
-            class="btn btn-primary" id="btn-agregar" *ngIf="isAdmin"
-            (click)="agregarEdu.showModal()">Agregar
-          </button>
-        </h2>
-    </div>
-    <app-agregar-educacion #agregarEdu></app-agregar-educacion>
+            <h2>Educación
+                <button style="margin: 15px; padding: 10px" type="button" class="btn btn-primary" id="btn-agregar"
+                    *ngIf="isAdmin" (click)="agregarEdu.showModal()">Agregar
+                </button>
+            </h2>
+        </div>
+        
 
-    <br *ngIf="!isAdmin" >
+        <br *ngIf="!isAdmin">
 
-    <div>
-        <ul class="items-list ">
-            <!--<li *ngFor="let educacion of educacionList">-->
+        <div>
+            <ul class="items-list ">
                 <li *ngFor="let educacion of listaEducacion">
-                <div class="data-containter  col-md-12">
-                <a href="#">
-                <div class="logo-image-container">
-                    <img class = "logo-image" [src]="educacion.img"/>
-                </div>
-            </a>
-            <div *ngIf="isAdmin">
-               <!--
-                <fa-icon [icon]="fapen" id="btn-edit" (click)="onEdit(educacion.id)"></fa-icon>
-                
-                -->
-                <fa-icon [icon]="fapen" id="btn-edit" (click)="(editarEdu.showModal(educacion.id))"></fa-icon>
-                
-            </div>
-            <div *ngIf="isAdmin">
-                <fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(educacion.id)"></fa-icon>
-            </div>
+                    <div class="data-containter  col-md-12">
 
-                <div class="list-info">
-                   <div>
-                    <h3>{{educacion.institucion}}</h3>
-                    <p>{{educacion.titulo}} --
-                    <time>Desde: {{educacion.desde}}</time> - <time>Hasta: {{educacion.hasta}}</time></p>
-                    <!--<div class="btn-edit btn-right"> <i class="fa fa-pen"></i></div>-->
-                    <br>
-                </div>
-                </div>
-                
-                </div>
-                <!--
-                <div class="data-control">
-                    <div class="btn-edit">
-                        <a href="#" class="btn-right"><i class="fa fa-pen"></i></a>
+                        <div class="logo-image-container">
+                            <img class="logo-image" [src]="educacion.img" />
+                        </div>
+
+                        <div *ngIf="isAdmin">
+                            <fa-icon [icon]="fapen" id="btn-edit" (click)="(editarEdu.showModal(educacion.id))">
+                            </fa-icon>
+                        </div>
+                        <div *ngIf="isAdmin">
+                            <fa-icon [icon]="fatrashcan" id="btn-trash" (click)="onDelete(educacion.id)"></fa-icon>
+                        </div>
+
+                        <div class="list-info">
+                            <div>
+                                <h3>{{educacion.institucion}}</h3>
+                                <p>{{educacion.titulo}} --
+                                    <time>Desde: {{educacion.desde}}</time> - <time>Hasta: {{educacion.hasta}}</time>
+                                </p>
+                                <br>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            -->
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    </div>
-    </div>
-    <app-editar-educacion #editarEdu></app-editar-educacion>
+</div>
+<app-agregar-educacion #agregarEdu></app-agregar-educacion>
+<app-editar-educacion #editarEdu></app-editar-educacion>

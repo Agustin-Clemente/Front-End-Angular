@@ -1,48 +1,70 @@
 .modalc {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
     padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 1050;
 }
-    
-    .modalc-content{
-width: 100%;
-max-width: 500px;
-    }
 
-    .modal-header{
-        height: 93px;
-        display: flex;
-        align-items: center;
-        padding: 0.32px;
-        background-color: white;
-        background-size: cover;
-        background-position: center;
-        justify-content: space-between;
-        border-radius: 4px,4px,0,0;
-    }
+.modalc-content {
+    width: 100%;
+    max-width: 500px;
+}
 
-    .modalc-container{
-        padding: 32 px;
-        background:black;
-        border-radius: 0,0,4px,4px;
-    }
+.modal-header {
+    height: 93px;
+    display: flex;
+    align-items: center;
+    padding: 0.32px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    border-radius: 4px, 4px, 0, 0;
+}
 
-    h4{
-        text-align: center;
-    }
+.modalc-container {
+    padding: 32 px;
+    background: black;
+    border-radius: 0, 0, 4px, 4px;
+}
 
-
-.form-control{
-    border-color: aquamarine;
-    color:aquamarine;
+h4 {
+    text-align: center;
     background-color: black;
+    margin-bottom: auto;
+}
+
+
+.form-control {
+    border-color: aquamarine;
+    color: aquamarine;
+    background-color: black;
+}
+
+.example-handle {
+    float: right;
+    top: 10px;
+    right: 10px;
+    color: aquamarine;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+}
+
+#guardar {
+    margin-right: 20px;
+    margin-left: 16px;
+}
+
+.form-group{
+    margin-left: 16px;
+    margin-right: 16px;
 }

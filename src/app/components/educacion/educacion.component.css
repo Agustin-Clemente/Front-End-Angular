@@ -1,31 +1,40 @@
-#btn-edit{
+#btn-edit {
     background-color: aqua;
     font-size: medium;
     float: right;
     margin-bottom: 5px;
-    
+
 
 }
 
-#btn-trash{
-  display: inline-block;
-  float: right;
-  clear: right;
-  background-color: lightcoral;
+#btn-trash {
+    display: inline-block;
+    float: right;
+    clear: right;
+    background-color: lightcoral;
 }
 
-#btn-agregar{
+#btn-agregar {
     color: black;
     background-color: aqua;
     font-weight: 600;
 }
 
-fa-icon{
+fa-icon {
     color: black;
-        height: 2.4rem;
-        width: 2.4rem;
-        line-height: 2.4rem;
-        text-align: center;
-        border-radius: 50%;
-        cursor: pointer;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+h2 {
+
+    margin-left: 10px;
+}
+
+h3{
+    display: flex;
 }

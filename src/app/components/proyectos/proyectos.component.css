@@ -1,115 +1,125 @@
-.logo-image{
+.logo-image {
     width: 30%;
     height: auto;
     display: block;
-  margin-left: auto;
-  margin-bottom: 50px;
-  /*margin-right: auto;*/
+    margin-left: auto;
+    margin-bottom: 50px;
+    /*margin-right: auto;*/
 }
 
-#btn-agregar{
+#btn-agregar {
     color: black;
     background-color: aqua;
     font-weight: 600;
 }
 
-fa-icon{
+fa-icon {
     color: black;
-        height: 2.4rem;
-        width: 2.4rem;
-        line-height: 2.4rem;
-        text-align: center;
-        border-radius: 50%;
-        cursor: pointer;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 
-h2{
-    padding-right:10.5em;
+h2 {
+
+    margin-left: 10px;
 }
 
 
-#btn-edit{
+#btn-edit {
     background-color: aqua;
     font-size: medium;
     float: right;
     margin-bottom: 5px;
-    
+
 
 }
 
-#btn-trash{
-  display: inline-block;
-  float: right;
-  clear: right;
-  background-color: lightcoral;
+#btn-trash {
+    display: inline-block;
+    float: right;
+    clear: right;
+    background-color: lightcoral;
 }
 
-.modal-body{
+.modal-body {
     background-color: black;
 }
 
-.modal-header{
+.modal-header {
     background-color: black;
     border-color: black;
     padding-right: 0%;
-  
+
 }
 
 
-.form-control{
+.form-control {
     border-color: aquamarine;
-    color:aquamarine;
+    color: aquamarine;
     background-color: transparent;
 }
 
 
-#titulo{
-    padding-left: 29%;
-}
-
-#guardar{
+#guardar {
     margin-right: 20px;
 }
 
-.example-handle {
-    cursor: move;
-  }
 
-  .modalc {
+.modalc {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
     padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-y: auto;
-    z-index: 1000;
+    z-index: 1050;
 }
-    
-    .modalc-content{
-width: 100%;
-max-width: 500px;
-    }
 
-    .modal-header{
-        height: 93px;
-        display: flex;
-        align-items: center;
-        padding: 0.32px;
-        background-color: white;
-        background-size: cover;
-        background-position: center;
-        justify-content: space-between;
-        border-radius: 4px,4px,0,0;
-    }
+.modalc-content {
+    width: 100%;
+    max-width: 500px;
+}
 
-    .modalc-container{
-        padding: 32 px;
-        background:black;
-        border-radius: 0,0,4px,4px;
-    }
+.modal-header {
+    height: 93px;
+    display: flex;
+    align-items: center;
+    padding: 0.32px;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    border-radius: 4px, 4px, 0, 0;
+}
+
+.modalc-container {
+    padding: 32 px;
+    background: black;
+    border-radius: 0, 0, 4px, 4px;
+}
+
+h4 {
+    text-align: center;
+    background-color: black;
+    margin-bottom: auto;
+}
+
+.example-handle {
+    float: right;
+    top: 10px;
+    right: 10px;
+    color: aquamarine;
+    cursor: move;
+    width: 24px;
+    height: 24px;
+}

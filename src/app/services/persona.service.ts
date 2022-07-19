@@ -8,23 +8,23 @@ import { persona } from '../model/persona.model';
 })
 export class PersonaService {
 
-  url= 'http://localhost:8080/';
-  
-  constructor(private http:HttpClient) { }
+  url = 'http://localhost:8080/';
 
-  public getPersona() : Observable<persona>{
+  constructor(private http: HttpClient) { }
+
+  public getPersona(): Observable<persona> {
     return this.http.get<persona>(this.url + 'buscar/persona/2');
   }
 
-  public buscarPersona( id: number ):Observable<persona>{
+  public buscarPersona(id: number): Observable<persona> {
     return this.http.get<persona>(`${this.url}buscar/persona/${id}`);
   }
 
-  public editarPersona(id: number, per:persona):Observable<Object>{
-    return this.http.put(`${this.url}editar/persona/${id}`,per);
+  public editarPersona(id: number, per: persona): Observable<Object> {
+    return this.http.put(`${this.url}editar/persona/${id}`, per);
   }
 
-  public editarAcercaDe(id: number, per:persona):Observable<Object>{
-    return this.http.put(`${this.url}editar/acercade/${id}`,per);
+  public editarAcercaDe(id: number, per: persona): Observable<Object> {
+    return this.http.put(`${this.url}editar/acercade/${id}`, per);
   }
 }

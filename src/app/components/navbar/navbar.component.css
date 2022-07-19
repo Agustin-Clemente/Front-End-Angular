@@ -1,33 +1,34 @@
-.linkedin{
+.linkedin {
     width: 50px;
     margin-right: 15px;
 }
 
-.github{
+.github {
     width: 50px;
+    margin-left: 10px;
 
 }
 
-.argprog{
+.argprog {
     width: 100px;
     margin-right: 10px;
     background-color: black;
 }
 
-.text{
+.text {
     color: aqua;
 }
 
-#navbar{
+#navbar {
     transition: top 0.3s;
 }
 
-.navbar-brand{
+.navbar-brand {
     color: aqua;
-    font-weight:700;
+    font-weight: 700;
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
     color: snow;
 }
 
@@ -37,12 +38,6 @@
     cursor: pointer;
 }
 
-.navbar-toggler{
-    color:aqua;
+.navbar-toggler {
+    color: aqua;
 }
-
-
-
-
-
-

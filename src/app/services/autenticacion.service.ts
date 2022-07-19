@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Jwt } from '../model/jwt';
 import { Usuario } from '../model/usuario';
 
@@ -9,30 +8,13 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url="http://localhost:8080/auth/login"
-  //currentUserSubject: BehaviorSubject<any>;
+  url = "http://localhost:8080/auth/login"
 
-  constructor(private http:HttpClient) { 
+  constructor(private http: HttpClient) {
     console.log("El servicio de auth está corriendo");
-    //this.currentUserSubject= new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser')|| '{}'))
   }
 
-  public login(usuario : Usuario): Observable<Jwt>{
+  public login(usuario: Usuario): Observable<Jwt> {
     return this.http.post<Jwt>(this.url, usuario);
   }
-
-  /*
-  iniciarSesion(credenciales:any):Observable<any>{
-    return this.http.post(this.url, credenciales).pipe(map(data =>{
-      sessionStorage.setItem('currentUser',JSON.stringify(data));
-      this.currentUserSubject.next(data);
-
-      return data;
-    }))
-  }
-
-  get usuarioAutenticado(){
-    return this.currentUserSubject.value;
-  }
-  */
 }

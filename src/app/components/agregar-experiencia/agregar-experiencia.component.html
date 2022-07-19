@@ -1,178 +1,66 @@
-
-
-<div
-  class="modal"
-  tabindex="-1"
-  role="dialog"
-  [ngStyle]="{'display':displayStyle}">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="titulo">Actualizar experiencia</h4>
-      </div>
-      <div class="modal-body">
-        <!--<p>One Stop Solution for all CS problems</p>-->
-        <!--<div class="col-md-6 offset-md-3">-->
-            <!--<h3 class="center">Nueva experiencia</h3>-->
-            <form  #expForm = "ngForm">
-                <div class="form-group">
-                    <label>Cargo: </label>
-                    <input type="text" class="form-control" id="cargo" [(ngModel)]="exp.cargo" name="cargo" required placeholder="Ingrese el cargo" 
-                    #cargo = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "cargo.invalid && (cargo.dirty || cargo.touched)">
-                        <div *ngIf= "cargo.errors?.['required']"> Ingrese el cargo</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Sector: </label>
-                    <input type="text" class="form-control" id="sector" [(ngModel)]="exp.sector" name="sector" required placeholder="Ingrese el sector" 
-                    #sector = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "sector.invalid && (sector.dirty || sector.touched)">
-                        <div *ngIf= "sector.errors?.['required']"> Ingrese el sector</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Jornada: </label>
-                    <input type="text" class="form-control" id="jornada" [(ngModel)]="exp.jornada" name="jornada" required placeholder="Ingrese la jornada" 
-                    #jornada = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "jornada.invalid && (jornada.dirty || jornada.touched)">
-                        <div *ngIf= "jornada.errors?.['required']"> Ingrese la jornada</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Desde: </label>
-                    <input type="date" class="form-control" id="desde" [(ngModel)]="exp.desde" name="desde" required placeholder="Ingrese fecha de inicio" 
-                    #desde = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "desde.invalid && (desde.dirty || desde.touched)">
-                        <div *ngIf= "desde.errors?.['required']"> Ingrese fecha de inicio</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Hasta: </label>
-                    <input type="text" class="form-control" id="hasta" [(ngModel)]="exp.hasta" name="hasta" required placeholder="Ingrese fecha de fin" 
-                    #hasta = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "hasta.invalid && (hasta.dirty || hasta.touched)">
-                        <div *ngIf= "hasta.errors?.['required']"> Ingrese fecha de fin</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Img: </label>
-                    <input type="text" class="form-control" id="img" [(ngModel)]="exp.img" name="img" required placeholder="Ingrese dirección de imagen" 
-                    #imagen = "ngModel">
-                    <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
-                        <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
-                    </div>
-                </div>
-            
-                <button class="btn btn-success" id="guardar" (click)="editarExp()" [disabled]="!expForm.form.valid">Guardar</button>
-                <button type="button" class="btn btn-danger" 
-                (click)="volverAHome()">
-          Cancelar
-        </button>
-            </form>
-            
-            <!--</div>-->
-  
-      </div>
-      <!--
-      <div class="modal-footer">
-        <button class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" 
-                (click)="closePopup()">
-          Cancelar
-        </button>
-      </div>
-      -->
-    </div>
-  </div>
-</div>
-
-<!--
-<div class="col-md-6 offset-md-3">
-<h3 class="center">Nueva experiencia</h3>
-<form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label>Cargo: </label>
-        <input type="text" class="form-control" id="cargo" [(ngModel)]="exp.cargo" name="cargo">
-    </div>
-    <div class="form-group">
-        <label>Sector: </label>
-        <input type="text" class="form-control" id="sector" [(ngModel)]="exp.sector" name="sector">
-    </div>
-    <div class="form-group">
-        <label>Jornada: </label>
-        <input type="text" class="form-control" id="jornada" [(ngModel)]="exp.jornada" name="jornada">
-    </div>
-    <div class="form-group">
-        <label>Desde: </label>
-        <input type="text" class="form-control" id="desde" [(ngModel)]="exp.desde" name="desde">
-    </div>
-    <div class="form-group">
-        <label>Hasta: </label>
-        <input type="text" class="form-control" id="hasta" [(ngModel)]="exp.hasta" name="hasta">
-    </div>
-    <div class="form-group">
-        <label>Img: </label>
-        <input type="text" class="form-control" id="img" [(ngModel)]="exp.img" name="img">
-    </div>
-
-    <button class="btn btn-success">Guardar</button>
-
-</form>
-
-</div>
--->
-<!--
-<ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" 
-            id="modal-basic-title">
-            Geeks of Geeks
-        </h4>
-        <button type="button" class="close"
-                aria-label="Close" (click)=
-                "modal.dismiss('Cross click')">
-  
-            <span aria-hidden="true">
-                ×
-            </span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <form>
-            <div class="form-group">
-                <label for="dateOfBirth">
-                    Date of birth
-                </label>
-                <div class="input-group">
-                    <input id="dateOfBirth" 
-                        class="form-control" 
-                        placeholder="yyyy-mm-dd" 
-                        name="dp" ngbDatepicker
-                        >
-  
-                    <div class="input-group-append">
-                        <button class="btn 
-                            btn-outline-secondary calendar"
-                        
-                            type="button">
-                        </button>
-                    </div>
-                </div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="titulo">Actualizar experiencia</h4>
             </div>
-        </form>
+            <div class="modal-body">
+                <form #expForm="ngForm">
+                    <div class="form-group">
+                        <label>Cargo: </label>
+                        <input type="text" class="form-control" id="cargo" [(ngModel)]="exp.cargo" name="cargo" required
+                            placeholder="Ingrese el cargo" #cargo="ngModel">
+                        <div class="alert alert-danger" *ngIf="cargo.invalid && (cargo.dirty || cargo.touched)">
+                            <div *ngIf="cargo.errors?.['required']"> Ingrese el cargo</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sector: </label>
+                        <input type="text" class="form-control" id="sector" [(ngModel)]="exp.sector" name="sector"
+                            required placeholder="Ingrese el sector" #sector="ngModel">
+                        <div class="alert alert-danger" *ngIf="sector.invalid && (sector.dirty || sector.touched)">
+                            <div *ngIf="sector.errors?.['required']"> Ingrese el sector</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Jornada: </label>
+                        <input type="text" class="form-control" id="jornada" [(ngModel)]="exp.jornada" name="jornada"
+                            required placeholder="Ingrese la jornada" #jornada="ngModel">
+                        <div class="alert alert-danger" *ngIf="jornada.invalid && (jornada.dirty || jornada.touched)">
+                            <div *ngIf="jornada.errors?.['required']"> Ingrese la jornada</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Desde: </label>
+                        <input type="text" class="form-control" id="desde" [(ngModel)]="exp.desde" name="desde" required
+                            placeholder="Ingrese fecha de inicio" #desde="ngModel">
+                        <div class="alert alert-danger" *ngIf="desde.invalid && (desde.dirty || desde.touched)">
+                            <div *ngIf="desde.errors?.['required']"> Ingrese fecha de inicio</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Hasta: </label>
+                        <input type="text" class="form-control" onkeypress="return (event.charCode!= 47)" id="hasta" [(ngModel)]="exp.hasta" name="hasta" required
+                            placeholder="Ingrese fecha de fin" #hasta="ngModel">
+                        <div class="alert alert-danger" *ngIf="hasta.invalid && (hasta.dirty || hasta.touched)">
+                            <div *ngIf="hasta.errors?.['required']"> Ingrese fecha de fin</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Imagen: </label>
+                        <input type="text" class="form-control" id="img" [(ngModel)]="exp.img" name="img" required
+                            placeholder="Ingrese dirección de imagen" #imagen="ngModel">
+                        <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                            <div *ngIf="imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" id="guardar" (click)="editarExp()"
+                        [disabled]="!expForm.form.valid">Guardar</button>
+                    <button type="button" class="btn btn-danger" (click)="volverAHome()">
+                        Cancelar
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" 
-            class="btn btn-outline-dark" 
-            (click)="modal.close('Save click')">
-            Save
-        </button>
-    </div>
-</ng-template>
-  
-<button class="btn btn-lg btn-outline-primary" 
-    (click)="open(content)">
-    Popup using Angular and Bootstrap
-</button>
--->
+</div>

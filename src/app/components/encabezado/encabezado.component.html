@@ -1,112 +1,107 @@
-<div class = "card mat-card" id="first-card">
-    <div id="profile-background"><img src= "https://static.vecteezy.com/system/resources/previews/002/071/822/non_2x/template-for-science-and-technology-concept-background-free-vector.jpg"></div>
+<div class="card mat-card" id="first-card">
+    <div id="profile-background"><img src="assets/imagenes/fondo2.jpg">
+    </div>
     <div id="info" style="padding: 16px">
-        
-    <div id="info-img">
-    <img class="profile-image" [src]="persona.img">
-    <div *ngIf="isAdmin">
-        <fa-icon [icon]="fapen" id="btn-edit" (click)="abrir(persona.id)"></fa-icon>
-    </div>
-    <!--
-    <div class="btn-edit" class="btn-right"><i class="fa fa-pen"></i></div>
-    -->
-    </div>
-    <div id="info-data">
-        <div>
-            <h1>{{persona.nombre}} {{persona.apellido}}</h1>
-            <div id="info-company">{{persona.profesion}}</div>
-            <div id="info-contact">
-                <span>{{persona.ubicacion}}</span>
-                <span><a href="mailto:agustin.clemente@bue.edu.ar"> Contacto</a></span>
+
+        <div id="info-img">
+            <img class="profile-image" [src]="persona.img">
+            <div *ngIf="isAdmin">
+                <fa-icon [icon]="fapen" id="btn-edit" (click)="abrir(persona.id)"></fa-icon>
             </div>
         </div>
-        <ul id="info-details">
-            <li><a href="#">
-                <img src="https://eci.dc.uba.ar/wp-content/uploads/2019/12/ECI-logos-uba-17.png">
-                <h2>UBA</h2>
-            </a></li>
-            <li><a href="#">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_de_la_Facultad_de_Ciencias_Veterinarias.jpg">
-                <h2>FVET</h2>
-            </a></li>
-        </ul>
-    </div>
-  </div>
-      
-  </div>
+        <div id="info-data">
+            <div>
+                <h1>{{persona.nombre}} {{persona.apellido}}</h1>
+                <div id="info-company">{{persona.profesion}}</div>
+                <div id="info-contact">
+                    <span>{{persona.ubicacion}}</span>
+                    <span><a href="mailto:agustin.clemente@bue.edu.ar"> Contacto</a></span>
+                </div>
+            </div>
+            <ul id="info-details">
+                <li><a href="https://www.uba.ar" target="_blank">
+                        <img src="assets/imagenes/logos-uba.png">
+                        <h2>UBA</h2>
+                    </a></li>
 
-  <ng-container *ngIf="mostrar">
+                <li><a href="http://www.fvet.uba.ar/" target="_blank">
+                        <img src="assets/imagenes/fvet.jpg">
+                        <h2>FVET</h2>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="mostrar">
     <div class="modalc">
-        <div class="modalc-content">
+        <div class="modalc-content" cdkDrag>
             <div class="modalc-title">
-<h4  id="titulo">Editar datos</h4>
-</div>
-<div class="modal-body">
-<!--<p>One Stop Solution for all CS problems</p>-->
-<!--<div class="col-md-6 offset-md-3">-->
-    <!--<h3 class="center">Nueva experiencia</h3>-->
-    <form  #editarPersonaForm = "ngForm">
-        <div class="form-group">
-            <label>Nombre: </label>
-            <input type="text" class="form-control" id="nombre" [(ngModel)]="perso.nombre" name="nombre" required placeholder="Ingrese el nombre" 
-            #nombre = "ngModel">
-            <div class = "alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
-                <div *ngIf= "nombre.errors?.['required']"> Ingrese el nombre</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Apellido: </label>
-            <input type="text" class="form-control" id="apellido" [(ngModel)]="perso.apellido" name="apellido" required placeholder="Ingrese el apellido" 
-            #apellido = "ngModel">
-            <div class = "alert alert-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)">
-                <div *ngIf= "apellido.errors?.['required']"> Ingrese el apellido</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Profesión: </label>
-            <input type="text" class="form-control" id="profesion" [(ngModel)]="perso.profesion" name="profesion" required placeholder="Ingrese la profesión" 
-            #profesion = "ngModel">
-            <div class = "alert alert-danger" *ngIf= "profesion.invalid && (profesion.dirty || profesion.touched)">
-                <div *ngIf= "profesion.errors?.['required']"> Ingrese la profesión</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Ubicación: </label>
-            <input type="text" class="form-control" id="ubicacion" [(ngModel)]="perso.ubicacion" name="ubicacion" required placeholder="Ingrese la ubicación" 
-            #ubicacion = "ngModel">
-            <div class = "alert alert-danger" *ngIf= "ubicacion.invalid && (ubicacion.dirty || ubicacion.touched)">
-                <div *ngIf= "ubicacion.errors?.['required']"> Ingrese la ubicación/div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Img: </label>
-            <input type="text" class="form-control" id="img" [(ngModel)]="perso.img" name="img" required placeholder="Ingrese dirección de imagen" 
-            #imagen = "ngModel">
-            <div class = "alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
-                <div *ngIf= "imagen.errors?.['required']"> Ingrese dirección de imagen</div>
-            </div>
-        </div>
-    
-        <button class="btn btn-success" id="guardar" (click)="editarPerso(perso)" [disabled]="!editarPersonaForm.form.valid">Guardar</button>
-        <button type="button" class="btn btn-danger"
-        (click)="cerrar()">
-  Cancelar
-</button>
-        </div>
-    </form>
-    
-    <!--</div>-->
+                <h4>Editar datos
+                    <div class="example-handle" cdkDragHandle>
+                        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                            </path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                    </div>
+                </h4>
 
-</div>
-<!--
-<div class="modal-footer">
-<button class="btn btn-success">Guardar</button>
-<button type="button" class="btn btn-danger" 
-        (click)="closePopup()">
-  Cancelar
-</button>
-</div>
--->
-</div>
-</div>
+            </div>
+            <div class="modal-body">
+                <form #editarPersonaForm="ngForm">
+                    <div class="form-group">
+                        <label>Nombre: </label>
+                        <input type="text" class="form-control" id="nombre" [(ngModel)]="perso.nombre" name="nombre"
+                            required placeholder="Ingrese el nombre" #nombre="ngModel">
+                        <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                            <div *ngIf="nombre.errors?.['required']"> Ingrese el nombre</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido: </label>
+                        <input type="text" class="form-control" id="apellido" [(ngModel)]="perso.apellido"
+                            name="apellido" required placeholder="Ingrese el apellido" #apellido="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                            <div *ngIf="apellido.errors?.['required']"> Ingrese el apellido</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesión: </label>
+                        <input type="text" class="form-control" id="profesion" [(ngModel)]="perso.profesion"
+                            name="profesion" required placeholder="Ingrese la profesión" #profesion="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="profesion.invalid && (profesion.dirty || profesion.touched)">
+                            <div *ngIf="profesion.errors?.['required']"> Ingrese la profesión</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ubicación: </label>
+                        <input type="text" class="form-control" id="ubicacion" [(ngModel)]="perso.ubicacion"
+                            name="ubicacion" required placeholder="Ingrese la ubicación" #ubicacion="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="ubicacion.invalid && (ubicacion.dirty || ubicacion.touched)">
+                            <div *ngIf="ubicacion.errors?.['required']"> Ingrese la ubicación</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen: </label>
+                            <input type="text" class="form-control" id="img" [(ngModel)]="perso.img" name="img" required
+                                placeholder="Ingrese dirección de imagen" #imagen="ngModel">
+                            <div class="alert alert-danger" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                                <div *ngIf="imagen.errors?.['required']"> Ingrese dirección de imagen</div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success" id="guardar" (click)="editarPerso(perso)"
+                            [disabled]="!editarPersonaForm.form.valid">Guardar</button>
+                        <button type="button" class="btn btn-danger" (click)="cerrar()">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </ng-container>

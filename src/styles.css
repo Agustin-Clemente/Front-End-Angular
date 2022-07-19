@@ -2,8 +2,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 
-body{
-    background-color:  #1f1f21 ;
+body {
+    background-color: #1f1f21;
     color: aquamarine;
 }
 
@@ -16,11 +16,11 @@ body{
 
 
 .mat-card {
-    
+
     border-radius: 16px;
     margin: 10px 10px;
     padding: 20px;
-    border-color:  #6bd3ba ;
+    border-color: #6bd3ba;
     background-color: #1f1f21;
 }
 
@@ -28,28 +28,29 @@ body{
 
 
 .mat-card#first-card {
-    padding:0;
+    padding: 0;
 }
 
 
-div#profile-background{
+div#profile-background {
     display: flex;
-    
+
 }
 
-div#profile-background img{
+div#profile-background img {
     display: flex;
-    width:100%;
-    height: 402px;
+    width: 100%;
+    height: 262px;
     border-radius: 16px 16px 0 0;
 }
 
-.profile-image{
+.profile-image {
     border-radius: 50%;
     width: 152px;
     height: 152px;
     margin-top: -110px;
-    z-index:1;
+    z-index: 1;
+    margin-left: 16px;
 }
 
 div#info-actions {
@@ -60,29 +61,30 @@ div#info-actions button {
     margin-right: 8px;
 }
 
-div#info-contact span{
+div#info-contact span {
     font-size: 1rem;
     font-weight: 400;
 }
 
-div#info-contact span a{
+div#info-contact span a {
     color: azure;
     touch-action: manipulation;
     text-decoration: none;
 }
 
-div#info-company{
+div#info-company {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.25;
 }
 
-div#info-data{
+div#info-data {
     display: flex;
     justify-content: space-between;
+    padding-left: 16px;
 }
 
-div#info-data h1{
+div#info-data h1 {
     font-size: 1.8rem;
     display: inline;
     font-weight: 500;
@@ -91,86 +93,91 @@ div#info-data h1{
     word-break: break-word;
 }
 
-div#info-data ul#info-details{
-    width: 232px;
+div#info-data ul#info-details {
+    padding-right: 25px;
     list-style: none;
     flex-shrink: 0;
 }
 
-div#info-data ul#info-details li a{
-    color:black;
+div#info-data ul#info-details li a {
+    color: black;
     display: flex;
     text-decoration: none;
 }
 
-div#info-data ul#info-details li a h2{
+div#info-data ul#info-details li a h2 {
     font-size: 1rem;
     font-weight: 500;
     align-self: center;
     vertical-align: baseline;
-    color:aquamarine;
-     }
+    color: aquamarine;
+}
 
-     div#info-data ul#info-details li a img{
-         width: 32px;
-         height: 32px;
-         margin-right: 9px;
-     }
+div#info-data ul#info-details li a img {
+    width: 32px;
+    height: 32px;
+    margin-right: 9px;
+}
 
-     ul.items-list{
-         list-style: none inside;
-     }
+ul.items-list {
+    list-style: none inside;
+}
 
-     ul.items-list li{
-         display: flex;
-         margin: 10px 0;
-     }
+ul.items-list li {
+    display: flex;
+    margin: 10px 0;
+}
 
-     ul.items-list li div.data-container {
-         flex-grow: 1;
-     } 
-
-     ul.items-list li div.data-container a{
-         display: flex;
-         color: #000;
-     }
-
-     #info-img{
-        display: flex;
-    }
+ul.items-list li div.data-container {
+    flex-grow: 1;
     
-    .btn-right{
-        display: flex;
-        align-self: flex-end;
-    }
-    
-    .fa-button,.fa {
-        color:#000;
-        display: block;
-        height: 2.4rem;
-        width: 2.4rem;
-        line-height: 2.4rem;
-        text-align: center;
-        border-radius: 50%;
-        background: white;
-    }
-    
-    .fa-button:hover,.fa:hover{
-        background: gray;
-    }
+}
 
-    .logo-image{
-        width: 80px;
-        height: 80px;
-        margin-right: 9px;
-        float: left;
-        
-    }
+ul.items-list li div.data-container a {
+    display: flex;
+    color: #000;
+}
 
-    .img-proyecto, .texto-proyecto{
-        display: inline-block;
-        text-align: justify;
-    }
+#info-img {
+    display: flex;
+}
 
-   
+.btn-right {
+    display: flex;
+    align-self: flex-end;
+}
 
+.fa-button,
+.fa {
+    color: #000;
+    display: block;
+    height: 2.4rem;
+    width: 2.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    border-radius: 50%;
+    background: white;
+}
+
+.fa-button:hover,
+.fa:hover {
+    background: gray;
+}
+
+.logo-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 9px;
+    float: left;
+
+}
+
+.img-proyecto,
+.texto-proyecto {
+    display: inline-block;
+    text-align: justify;
+}
+
+ol,ul{
+    padding-left: 0;
+}
