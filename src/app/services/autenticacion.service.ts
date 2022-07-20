@@ -8,8 +8,8 @@ import { Usuario } from '../model/usuario';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url = "http://localhost:8080/auth/login"
-
+  //url = "http://localhost:8080/auth/login"
+  url = "https://miportfolio-agustinclemente.herokuapp.com/auth/login"
   constructor(private http: HttpClient) {
     console.log("El servicio de auth está corriendo");
   }

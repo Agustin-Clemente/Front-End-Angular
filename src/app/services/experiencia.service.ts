@@ -8,7 +8,8 @@ import { experiencia } from '../model/experiencia.model';
 })
 export class ExperienciaService {
 
-  private url = 'http://localhost:8080/';
+  //private url = 'http://localhost:8080/';
+  url = 'https://miportfolio-agustinclemente.herokuapp.com/';
 
   constructor(private http: HttpClient) { }
 
