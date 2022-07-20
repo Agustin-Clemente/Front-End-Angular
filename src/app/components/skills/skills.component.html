@@ -112,8 +112,8 @@
                     #porcentaje="ngModel">
                   <div class="alert alert-danger"
                     *ngIf="porcentaje.invalid && (porcentaje.dirty || porcentaje.touched)">
-                    <div *ngIf="porcentaje.errors?.['min']"> Ingrese un porcentajeentre 0 y 100 </div>
-                    <div *ngIf="porcentaje.errors?.['max']"> Ingrese un porcentajeentre 0 y 100</div>
+                    <div *ngIf="porcentaje.errors?.['min']"> Ingrese un porcentaje entre 0 y 100 </div>
+                    <div *ngIf="porcentaje.errors?.['max']"> Ingrese un porcentaje entre 0 y 100</div>
                     <div *ngIf="porcentaje.errors?.['required']"> Ingrese el porcentaje</div>
                   </div>
                 </div>

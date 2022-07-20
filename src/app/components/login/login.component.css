@@ -30,3 +30,7 @@
 .btn-outline-danger:hover {
     color: black;
 }
+
+.alert{
+    color: red;
+}
