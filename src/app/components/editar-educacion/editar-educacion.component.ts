@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { educacion } from 'src/app/model/educacion.model';
 import Swal from 'sweetalert2';
 import { EducacionComponent } from '../educacion/educacion.component';

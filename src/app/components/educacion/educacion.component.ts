@@ -81,10 +81,6 @@ export class EducacionComponent implements OnInit {
   }
 
 
-  public editar(edu: educacion) {
-    localStorage.setItem("id", edu.id.toString());
-  }
-
   convertirFecha(fechaString) {
     var fechaSp = fechaString.split("-");
     var anio = 2022;
