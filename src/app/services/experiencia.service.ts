@@ -9,7 +9,8 @@ import { experiencia } from '../model/experiencia.model';
 export class ExperienciaService {
 
   //private url = 'http://localhost:8080/';
-  url = 'https://miportfolio-agustinclemente.herokuapp.com/';
+  //url = 'https://miportfolio-agustinclemente.herokuapp.com/';
+  url = 'https://portfoliowebfullstack-production.up.railway.app/';
 
   constructor(private http: HttpClient) { }
 

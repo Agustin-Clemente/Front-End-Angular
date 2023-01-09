@@ -10,7 +10,8 @@ import { educacion } from '../model/educacion.model';
 export class EducacionService {
 
   //url = 'http://localhost:8080/';
-  url = 'https://miportfolio-agustinclemente.herokuapp.com/';
+  //url = 'https://miportfolio-agustinclemente.herokuapp.com/';
+  url = 'https://portfoliowebfullstack-production.up.railway.app/';
 
   constructor(private http: HttpClient) { }
 
