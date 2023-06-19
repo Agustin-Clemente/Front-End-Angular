@@ -10,7 +10,8 @@ export class ProyectosService {
 
   //url = 'http://localhost:8080/';
   //url = 'https://miportfolio-agustinclemente.herokuapp.com/';
-  url = 'https://portfoliowebfullstack-production.up.railway.app/';
+  //url = 'https://portfoliowebfullstack-production.up.railway.app/';
+  url = 'https://backap-yjd8.onrender.com/'
 
   constructor(private http: HttpClient) { }
 
