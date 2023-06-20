@@ -11,8 +11,9 @@ export class ExperienciaService {
   //private url = 'http://localhost:8080/';
   //url = 'https://miportfolio-agustinclemente.herokuapp.com/';
   //url = 'https://portfoliowebfullstack-production.up.railway.app/';
-  url = 'https://backap-yjd8.onrender.com/'
-
+  //url = 'https://backap-yjd8.onrender.com/'
+  url= 'https://mi-portfolio-u8ia.onrender.com/'
+  
   constructor(private http: HttpClient) { }
 
   public obtenerExperiencia(): Observable<experiencia[]> {
