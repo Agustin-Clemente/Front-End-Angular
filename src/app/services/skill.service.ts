@@ -13,8 +13,8 @@ export class SkillService {
   //url = 'https://portfoliowebfullstack-production.up.railway.app/';
   //url = 'https://backap-yjd8.onrender.com/'
   //url= 'https://mi-portfolio-u8ia.onrender.com/'
-  //url= 'https://mi-portfolio-u8ia.onrender.com/'
-  url= 'https://backend-ap-uyzs.onrender.com/'
+  url= 'https://mi-portfolio-u8ia.onrender.com/'
+  //url= 'https://backend-ap-uyzs.onrender.com/'
   
   constructor(private http: HttpClient) { }
 
