@@ -12,8 +12,9 @@ export class ProyectosService {
   //url = 'https://miportfolio-agustinclemente.herokuapp.com/';
   //url = 'https://portfoliowebfullstack-production.up.railway.app/';
   //url = 'https://backap-yjd8.onrender.com/'
-  url= 'https://mi-portfolio-u8ia.onrender.com/'
-  
+  //url= 'https://mi-portfolio-u8ia.onrender.com/'
+  url= 'https://backend-ap-uyzs.onrender.com/'
+
   constructor(private http: HttpClient) { }
 
   public obtenerProyectos(): Observable<proyectos[]> {
