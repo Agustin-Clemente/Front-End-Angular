@@ -33,7 +33,13 @@
                             <div>
                                 <h3>{{proyecto.titulo}}</h3>
                                 <p>{{proyecto.anio}}</p>
-                                <p>{{proyecto.descripcion}}</p>
+                                
+                                <p *ngIf="proyecto.descripcion.includes('http')" >
+                                    {{proyecto.descripcion.split('Disponible en: ')[0]}}
+                                    <a href="{{proyecto.descripcion.split('Disponible en: ')[1]}}" target="_blank">{{proyecto.descripcion.split('https')[1]}}</a>
+                                </p>
+                                
+                                <p *ngIf="!proyecto.descripcion.includes('http')">{{proyecto.descripcion}}</p>
                             </div>
                         </div>
 
