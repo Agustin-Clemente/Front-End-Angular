@@ -36,7 +36,7 @@
                                 
                                 <p *ngIf="proyecto.descripcion.includes('http')" >
                                     {{proyecto.descripcion.split('Disponible en: ')[0]}}
-                                    <a href="{{proyecto.descripcion.split('Disponible en: ')[1]}}" target="_blank">{{proyecto.descripcion.split('https')[1]}}</a>
+                                    <a href="{{proyecto.descripcion.split('Disponible en: ')[1]}}" target="_blank">Disponible en: {{proyecto.descripcion.split('Disponible en: ')[1]}}</a>
                                 </p>
                                 
                                 <p *ngIf="!proyecto.descripcion.includes('http')">{{proyecto.descripcion}}</p>
